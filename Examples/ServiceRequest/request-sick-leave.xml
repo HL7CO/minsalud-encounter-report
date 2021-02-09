@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+*****************************************************************************
+*   EJEMPLO DE RECURSO FHIR                                                 *
+*   Estándar: HL7 FHIR® R4                                                  *
+*   Recurso tipo: ServiceRequest                                            *
+*   Fecha: 2019-11-05                                                       *
+*   Organización:   HL7 Colombia                                            *
+*   Autor:  Mario Enrique Cortés <mario.cortes@hl7co.org>                   *
+*   Nota:   Este recurso tiene como finalidad servir de ejemplo para una    *
+*           prueba de concepto.                                             *
+*           No se recomienda el uso en producción de derivaciones de los    *
+*           ejemplos de recursos FHIR asociados a este ejercicio.           *
+*           Será necesario un análisis más detallado del escenario de       *
+*           interoperabilidad, prácticas, requisitos, regulaciones,         *
+*           factibilidad y elementos de dato, necesarios para definir un    *
+*           perfil que adapte los recursos FHIR al caso particular.         *
+*****************************************************************************
+-->
+<!-- Licencia por incapacidad -->
+<ServiceRequest xmlns="http://hl7.org/fhir">
+    <id value="request-sick-leave"/>
+    <text>
+        <status value="generated"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <h4>Paciente: Jorge Carlos Restrepo Rodríguez</h4>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th colspan="2">Licencia de incapacidad por enfermedad</th>
+                    </tr>
+                    <tr>
+                        <th>Tipo de incapacidad</th>
+                        <th>Días de incapacidad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Nueva</td>
+                        <td>3</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </text>
+    <status value="active"/>
+    <intent value="order"/>
+    <code>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="224453000"/>
+            <display value="solicita licencia por enfermedad"/>
+        </coding>
+    </code>
+    <!-- 51: Identificador para determinar el tipo de incapacidad temporal si la hubo. -->
+    <orderDetail>
+        <coding>
+            <system value="http://fhir.minsalud.gov.co/terminologies-systems/tipo-incapacidad-temporal"/>
+            <code value="1"/>
+            <display value="Nueva"/>
+        </coding>
+    </orderDetail>
+    <subject>
+        <reference value="Patient/17b87319-eefc-4a61-ad9f-6dc6ec6be16e"/>
+    </subject>
+    <!-- 52: Días de incapacidad -->
+    <occurrenceTiming>
+        <repeat>
+            <boundsDuration>
+                <value value="3"/>
+                <unit value="d"/>
+            </boundsDuration>
+        </repeat>
+    </occurrenceTiming>
+</ServiceRequest>

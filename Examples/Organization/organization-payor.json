@@ -1,0 +1,32 @@
+{
+  "resourceType": "Organization",
+  "id": "codAdminSalud-EPS1000",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n            <h2>SALUD PERMANENTE</h2>\n            <h4>Entidad Administradora de Palnes de Beneficios en Salud</h4>\n            <table border=\"1\">\n                <thead>\n                    <tr>\n                        <th colspan=\"2\">DATOS DE IDENTIFICACIÓN</th>\n                    </tr>\n                    <tr>\n                        <th>Tipo Identificación</th>\n                        <th>Identificación</th>\n                    </tr>\n                </thead>\n                <tbody>\n                    <tr>\n                        <td><strong>Código Administradora</strong></td>\n                        <td>EPS1000</td>\n                    </tr>\n                    <tr>\n                        <td><strong>NIT</strong></td>\n                        <td>900.000.000-0</td>\n                    </tr>\n                </tbody>\n            </table>\n        </div>"
+  },
+  "identifier": [
+    {
+      "use": "official",
+      "system": "http://eapb.minsalud.gov.co/admin-salud",
+      "value": "EPS1000"
+    },
+    {
+      "use": "official",
+      "system": "http://dian.gov.co/nit",
+      "value": "900.000.000-0"
+    }
+  ],
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://fhir.minsalud.gov.co/terminologies-systems/tipo-organizacion",
+          "code": "EAPBS",
+          "display": "Entidad Administradora de Palnes de Beneficios en Salud"
+        }
+      ]
+    }
+  ],
+  "name": "SALUD PERMANENTE"
+}

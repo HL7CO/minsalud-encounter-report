@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+*****************************************************************************
+*   EJEMPLO DE RECURSO FHIR                                                 *
+*   Estándar: HL7 FHIR® R4                                                  *
+*   Recurso tipo: Observation                                               *
+*   Fecha: 2019-11-05                                                       *
+*   Organización:   HL7 Colombia                                            *
+*   Autor:  Mario Enrique Cortés <mario.cortes@hl7co.org>                   *
+*   Nota:   Este recurso tiene como finalidad servir de ejemplo para una    *
+*           prueba de concepto.                                             *
+*           No se recomienda el uso en producción de derivaciones de los    *
+*           ejemplos de recursos FHIR asociados a este ejercicio.           *
+*           Será necesario un análisis más detallado del escenario de       *
+*           interoperabilidad, prácticas, requisitos, regulaciones,         *
+*           factibilidad y elementos de dato, necesarios para definir un    *
+*           perfil que adapte los recursos FHIR al caso particular.         *
+*****************************************************************************
+-->
+<!-- 5: Edad probable del usuario (En el momento de la prestación del servicio, cuando no se conoce o no se cuenta con la fecha de nacimiento) -->
+<Observation xmlns="http://hl7.org/fhir">
+    <id value="apparent-age"/>
+    <text>
+        <status value="generated"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <h4>Paciente: Jorge Carlos Restrepo Rodríguez</h4>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Observación</th>
+                        <th>Valor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Edad probable del usuario</td>
+                        <td>57 Años</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </text>
+    <status value="final"/>
+    <code>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="102519007"/>
+            <display value="edad aparente"/>
+        </coding>
+    </code>
+    <valueQuantity>
+        <!-- 5.2: Valor de la edad -->
+        <value value="57"/>
+        <!-- 5.1: Unidad de medida de la edad -->
+        <unit value="A"/>
+    </valueQuantity>
+</Observation>

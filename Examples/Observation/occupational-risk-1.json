@@ -1,0 +1,26 @@
+{
+    "resourceType": "Observation",
+    "id": "occupational-risk-1",
+    "status": "final",
+    "code": {
+        "coding": [
+            {
+                "system": "http://snomed.info/sct",
+                "code": "16090731000119102",
+                "display": "exposición ocupacional a factor de riesgo"
+            }
+        ]
+    },
+    "valueCodeableConcept": {
+        "coding": [
+            {
+                "system": "http://fhir.minsalud.gov.co/terminologies-systems/tipo-factor-riesgo",
+                "code": "3",
+                "display": "Ergonómicos"
+            }
+        ]
+    },
+    "note": [
+        {"text": "Silla de trabajo no ergonómica"}
+    ]
+}

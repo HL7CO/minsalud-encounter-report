@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+*****************************************************************************
+*   EJEMPLO DE RECURSO FHIR                                                 *
+*   Estándar: HL7 FHIR® R4                                                  *
+*   Recurso tipo: AllergyIntolerance                                        *
+*   Fecha: 2019-11-05                                                       *
+*   Organización:   HL7 Colombia                                            *
+*   Autor:  Mario Enrique Cortés <mario.cortes@hl7co.org>                   *
+*   Nota:   Este recurso tiene como finalidad servir de ejemplo para una    *
+*           prueba de concepto.                                             *
+*           No se recomienda el uso en producción de derivaciones de los    *
+*           ejemplos de recursos FHIR asociados a este ejercicio.           *
+*           Será necesario un análisis más detallado del escenario de       *
+*           interoperabilidad, prácticas, requisitos, regulaciones,         *
+*           factibilidad y elementos de dato, necesarios para definir un    *
+*           perfil que adapte los recursos FHIR al caso particular.         *
+*****************************************************************************
+-->
+<!-- 54: Antecedente de alergias -->
+<AllergyIntolerance xmlns="http://hl7.org/fhir">
+    <id value="allergy-1"/>
+    <text>
+        <status value="generated"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <h4>Paciente: Jorge Carlos Restrepo Rodríguez</h4>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th colspan="3">Registro de alergias</th>
+                    </tr>
+                    <tr>
+                        <th>Código</th>
+                        <th>Tipo de alergia</th>
+                        <th>Alérgeno</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>5</td>
+                        <td>Picadura de insectos</td>
+                        <td>himenópteros</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </text>
+    <!-- 54.1: Código que identifica el tipo de alergia -->
+    <code>
+        <coding>
+            <system value="http://fhir.minsalud.gov.co/terminologies-systems/tipo-alergia"/>
+            <code value="5"/>
+            <display value="Picadura de insectos"/>
+        </coding>
+    </code>
+    <patient>
+        <reference value="Patient/17b87319-eefc-4a61-ad9f-6dc6ec6be16e"/>
+    </patient>
+    <encounter>
+        <reference value="#encounter"/>
+    </encounter>
+    <!-- 54.2: Normbre del alérgeno -->
+    <reaction>
+        <substance>
+            <text value="himenópteros"/>
+        </substance>
+        <manifestation/>
+    </reaction>
+</AllergyIntolerance>

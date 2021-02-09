@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+*****************************************************************************
+*   EJEMPLO DE RECURSO FHIR                                                 *
+*   Estándar: HL7 FHIR® R4                                                  *
+*   Recurso tipo: MedicationRequest                                         *
+*   Fecha: 2019-11-05                                                       *
+*   Organización:   HL7 Colombia                                            *
+*   Autor:  Mario Enrique Cortés <mario.cortes@hl7co.org>                   *
+*   Nota:   Este recurso tiene como finalidad servir de ejemplo para una    *
+*           prueba de concepto.                                             *
+*           No se recomienda el uso en producción de derivaciones de los    *
+*           ejemplos de recursos FHIR asociados a este ejercicio.           *
+*           Será necesario un análisis más detallado del escenario de       *
+*           interoperabilidad, prácticas, requisitos, regulaciones,         *
+*           factibilidad y elementos de dato, necesarios para definir un    *
+*           perfil que adapte los recursos FHIR al caso particular.         *
+*****************************************************************************
+-->
+<MedicationRequest xmlns="http://hl7.org/fhir">
+    <id value="medication-request-1"/>
+    <text>
+        <status value="generated"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <h4>Paciente: Jorge Carlos Restrepo Rodríguez</h4>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th colspan="2">Tecnología en salud</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Tipo de tecnología: </strong></td>
+                        <td>Medicamento con uso con registro sanitario</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Fecha de entrega o aplicación de la tecnología: </strong></td>
+                        <td>2019/Nov/01 11:12:00</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Finalidad de la tecnología: </strong></td>
+                        <td>Tratamiento</td>
+                    </tr>
+                    <tr>
+                        <th colspan="2">Medicamento</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Código CUM: </strong></td>
+                        <td>19908266.44</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Nombre: </strong></td>
+                        <td>ADVIL® TABLETAS RECUBIERTAS</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Forma farmacéutic: </strong></td>
+                        <td>TABLETA</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Código ATC: </strong></td>
+                        <td>M01AE01</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Nombre: </strong></td>
+                        <td>IBUPROFENO</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Concentración: </strong></td>
+                        <td>200 mg</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Vía de administración: </strong></td>
+                        <td>Oral</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Dosis de administración: </strong></td>
+                        <td>1 Tableta</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Frecuencia de administración: </strong></td>
+                        <td>8 horas</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Número de días de tratamiento: </strong></td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Número de unidades entregadas: </strong></td>
+                        <td>9</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </text>
+    <status value="active"/>
+    <intent value="order"/>
+    <!-- 26: Tipo de tecnología en salud e insumo -->
+    <category>
+        <coding>
+            <system value="http://fhir.minsalud.gov.co/terminologies-systems/tipo-insumo"/>
+            <code value="Medicamento con uso con registro sanitario"/>
+            <display value="2"/>
+        </coding>
+    </category>
+    <!-- 28: Identificación de la Tecnología de salud entregada o aplicada (referencia) -->
+    <medicationReference>
+        <reference value="#medication-1"/>
+    </medicationReference>
+    <subject>
+        <reference value="Patient/17b87319-eefc-4a61-ad9f-6dc6ec6be16e"/>
+    </subject>
+    <!-- 27: Fecha de entrega o aplicación de la tecnología en salud -->
+    <authoredOn value="2019-11-01T11:12:00.000-05:00"/>
+    <!-- 36: identificación del talento humano en salud que realiza, entrega o aplica la tecnología de salud -->
+    <performer>
+        <reference value="Practitioner/rethus-cc759836522H"/>
+    </performer>
+    <!-- 29: Finalidad de la tecnología de salud -->
+    <reasonCode>
+        <coding>
+            <system value="http://fhir.minsalud.gov.co/terminologies-systems/finalidad-tecnologia-salud"/>
+            <code value="15"/>
+            <display value="Tratamiento"/>
+        </coding>
+    </reasonCode>
+    <dosageInstruction>
+        <!-- 32: Vía de administración -->
+        <route>
+            <coding>
+                <system value="http://fhir.minsalud.gov.co/terminologies-systems/ich-m5-via-admin"/>
+                <code value="ORAL"/>
+                <display value="Administración en o a través de la boca"/>
+            </coding>
+        </route>
+        <doseAndRate>
+            <!-- 31: Dosis de administración de la tecnología -->
+            <doseQuantity>
+                <value value="1"/>
+                <unit value="TABLETA"/>
+            </doseQuantity>
+            <!-- 33: Frecuencia de administración de la tecnología -->
+            <rateQuantity>
+                <value value="8"/>
+                <unit value="h"/>
+            </rateQuantity>
+        </doseAndRate>
+    </dosageInstruction>
+    <dispenseRequest>
+        <!-- 35: Número de unidades entregadas o aplicadas de la tecnología -->
+        <quantity>
+            <value value="9"/>
+        </quantity>
+        <!-- 34: Número de días de tratamiento -->
+        <expectedSupplyDuration>
+            <value value="3"/>
+            <unit value="d"/>
+        </expectedSupplyDuration>
+    </dispenseRequest>
+</MedicationRequest>

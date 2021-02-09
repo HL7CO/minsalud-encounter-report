@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+*****************************************************************************
+*   EJEMPLO DE RECURSO FHIR                                                 *
+*   Estándar: HL7 FHIR® R4                                                  *
+*   Recurso tipo: FamilyMemberHistory                                       *
+*   Fecha: 2019-11-05                                                       *
+*   Organización:   HL7 Colombia                                            *
+*   Autor:  Mario Enrique Cortés <mario.cortes@hl7co.org>                   *
+*   Nota:   Este recurso tiene como finalidad servir de ejemplo para una    *
+*           prueba de concepto.                                             *
+*           No se recomienda el uso en producción de derivaciones de los    *
+*           ejemplos de recursos FHIR asociados a este ejercicio.           *
+*           Será necesario un análisis más detallado del escenario de       *
+*           interoperabilidad, prácticas, requisitos, regulaciones,         *
+*           factibilidad y elementos de dato, necesarios para definir un    *
+*           perfil que adapte los recursos FHIR al caso particular.         *
+*****************************************************************************
+-->
+<!-- 55: Antecedente familiar -->
+<FamilyMemberHistory xmlns="http://hl7.org/fhir">
+    <id value="family-history-1"/>
+    <text>
+        <status value="generated"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <h4>Paciente: Jorge Carlos Restrepo Rodríguez</h4>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th colspan="4">Antecedentes familiares</th>
+                    </tr>
+                    <tr>
+                        <th colspan="2">Parentesco</th>
+                        <th colspan="2">Condición</th>
+                    </tr>
+                    <tr>
+                        <th>Código</th>
+                        <th>Nombre</th>
+                        <th>Código</th>
+                        <th>Nombre</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>4</td>
+                        <td>Abuelos</td>
+                        <td>1</td>
+                        <td>Hipertensión arterial</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </text>
+    <status value="completed"/>
+    <patient>
+        <reference value="Patient/17b87319-eefc-4a61-ad9f-6dc6ec6be16e"/>
+    </patient>
+    <!-- 55.2: Parentesco -->
+    <relationship>
+        <coding>
+            <system value="http://fhir.minsalud.gov.co/terminologies-systems/parentesco"/>
+            <code value="4"/>
+            <display value="Abuelos"/>
+        </coding>
+    </relationship>
+    <!-- 55.1 Condición de salud familiar -->
+    <condition>
+        <code>
+            <coding>
+                <system value="http://fhir.minsalud.gov.co/terminologies-systems/condicion-salud-familiar"/>
+                <code value="1"/>
+                <display value="Hipertensión arterial"/>
+            </coding>
+        </code>
+    </condition>
+</FamilyMemberHistory>

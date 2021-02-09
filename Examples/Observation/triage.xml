@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+*****************************************************************************
+*   EJEMPLO DE RECURSO FHIR                                                 *
+*   Estándar: HL7 FHIR® R4                                                  *
+*   Recurso tipo: Observation                                               *
+*   Fecha: 2019-11-05                                                       *
+*   Organización:   HL7 Colombia                                            *
+*   Autor:  Mario Enrique Cortés <mario.cortes@hl7co.org>                   *
+*   Nota:   Este recurso tiene como finalidad servir de ejemplo para una    *
+*           prueba de concepto.                                             *
+*           No se recomienda el uso en producción de derivaciones de los    *
+*           ejemplos de recursos FHIR asociados a este ejercicio.           *
+*           Será necesario un análisis más detallado del escenario de       *
+*           interoperabilidad, prácticas, requisitos, regulaciones,         *
+*           factibilidad y elementos de dato, necesarios para definir un    *
+*           perfil que adapte los recursos FHIR al caso particular.         *
+*****************************************************************************
+-->
+<!-- Triage -->
+<Observation xmlns="http://hl7.org/fhir">
+    <id value="triage"/>
+    <text>
+        <status value="generated"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <h4>Paciente: Jorge Carlos Restrepo Rodríguez</h4>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th colspan="2">Triage</th>
+                    </tr>
+                    <tr>
+                        <th>Fecha y hora del triage</th>
+                        <th>Clasificación del Triage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2019/Nov/01 10:48:00</td>
+                        <td>Triage V</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </text>
+    <status value="final"/>
+    <code>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="225390008"/>
+            <display value="triaje"/>
+        </coding>
+    </code>
+    <encounter>
+        <reference value="#encounter"/>
+    </encounter>
+    <!-- 22: Fecha y hora del triage -->
+    <effectiveDateTime value="2019-11-01T10:48:00.000-05:00"/>
+    <!-- 23: Clasificación del Triage -->
+    <valueCodeableConcept>
+        <coding>
+            <system value="http://fhir.minsalud.gov.co/terminologies-systems/clasificacion-triage"/>
+            <code value="5"/>
+            <display value="Triage V"/>
+        </coding>
+    </valueCodeableConcept>
+</Observation>

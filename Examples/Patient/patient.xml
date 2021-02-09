@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+*****************************************************************************
+*   EJEMPLO DE RECURSO FHIR                                                 *
+*   Estándar: HL7 FHIR® R4                                                  *
+*   Recurso tipo: Patient                                                   *
+*   Fecha: 2019-11-05                                                       *
+*   Organización:   HL7 Colombia                                            *
+*   Autor:  Mario Enrique Cortés <mario.cortes@hl7co.org>                   *
+*   Nota:   Este recurso tiene como finalidad servir de ejemplo para una    *
+*           prueba de concepto.                                             *
+*           No se recomienda el uso en producción de derivaciones de los    *
+*           ejemplos de recursos FHIR asociados a este ejercicio.           *
+*           Será necesario un análisis más detallado del escenario de       *
+*           interoperabilidad, prácticas, requisitos, regulaciones,         *
+*           factibilidad y elementos de dato, necesarios para definir un    *
+*           perfil que adapte los recursos FHIR al caso particular.         *
+*****************************************************************************
+-->
+<!-- ***** RECURSO DE INFORMACIÓN DEL PACIENTE ***** -->
+<Patient xmlns="http://hl7.org/fhir">
+    <!-- HL7 FHIR: Identificación unívoca del recurso -->
+    <id value="17b87319-eefc-4a61-ad9f-6dc6ec6be16e"/>
+    <text>
+        <status value="generated"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <h2>Jorge Carlos Restrepo Rodríguez</h2>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th colspan="2">DATOS DE IDENTIFICACIÓN</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Documento de identificación:</strong></td>
+                        <td>CC 1029384756K</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Género:</strong></td>
+                        <td>Masculino</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Fecha de nacimiento:</strong></td>
+                        <td>1962/Ago/19</td>
+                    </tr>
+                </tbody>
+            </table>
+            <hr />
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th colspan="2">DATOS DE LOCALIZACIÓN</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>País de residencia habitual:</strong></td>
+                        <td>Colombia</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Municipio de residencia habitual:</strong></td>
+                        <td>Bogotá D.C.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Zona:</strong></td>
+                        <td>Urbano</td>
+                    </tr>
+                </tbody>
+            </table>
+            <hr />
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th colspan="2">INFORMACIÓN DEMOGRÁFICA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>País de nacionalidad:</strong></td>
+                        <td>Colombia</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sexo:</strong></td>
+                        <td>Hombre</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Etnia:</strong></td>
+                        <td>Ninguno de los anteriores</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Comunidad étnica:</strong></td>
+                        <td>Kokonuco</td>
+                    </tr>
+                </tbody>
+            </table>
+            <hr />
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th colspan="3">ASEGURAMIENTO EN SALUD</th>
+                    </tr>
+                    <tr>
+                        <th>Aseguradora</th>
+                        <th>Tipo</th>
+                        <th>Referencia</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>SALUD PERMANENTE</strong></td>
+                        <td>POS</td>
+                        <td><a href="Organization/codAminSalud-EPS1000">Ver recurso</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </text>
+    <!-- *** EXTENSIONES DE ELEMENTOS DE DATO *** -->
+    <!-- 1: País de nacionalidad del usuario -->
+    <extension id="patient-nationality" url="http://hl7.org/fhir/StructureDefinition/patient-nationality">
+        <valueCodeableConcept>
+            <coding>
+                <system value="urn:iso:std:iso:3166"/>
+                <code value="CO"/>
+                <display value="Colombia"/>
+            </coding>
+        </valueCodeableConcept>
+    </extension>
+    <!-- 6: Sexo del usuario -->
+    <extension id="sexo" url="http://fhir.minsalud.gov.co/StructureDefinition/sexo">
+        <valueCodeableConcept>
+            <coding>
+                <system value="http://fhir.minsalud.gov.co/terminologies-systems/sexo"/>
+                <code value="H"/>
+                <display value="Hombre"/>
+            </coding>
+        </valueCodeableConcept>
+    </extension>
+    <!-- 13: Étnia a la que pertenece el usuario -->
+    <extension id="etnia" url="http://fhir.minsalud.gov.co/StructureDefinition/etnia">
+        <valueCodeableConcept>
+            <coding>
+                <system value="http://fhir.minsalud.gov.co/terminologies-systems/etnia"/>
+                <code value="6"/>
+                <display value="Ninguno de los anteriores"/>
+            </coding>
+        </valueCodeableConcept>
+    </extension>
+    <!-- 14: Comunidad étnica a la que pertenece el usuario -->
+    <!-- Ejemplo de codificación tomado de https://www.dane.gov.co/index.php/estadisticas-por-tema/demografia-y-poblacion/grupos-etnicos -->
+    <extension id="comunidad-etnica" url="http://fhir.minsalud.gov.co/StructureDefinition/comunidad-etnica">
+        <valueCodeableConcept>
+            <coding>
+                <system value="http://fhir.minsalud.gov.co/terminologies-systems/comunidad-etnica"/>
+                <code value="1157"/>
+                <display value="Kokonuco"/>
+            </coding>
+        </valueCodeableConcept>
+    </extension>
+    <!-- *** FIN DE EXTENSIONES DE ELEMENTOS DE DATO *** -->
+    <!-- 2: Documento de Identificación del usuario -->
+    <identifier>
+        <use value="official"/>
+        <type>
+            <coding>
+                <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+                <!-- 2.1: Tipo de documento de identificación del usuario -->
+                <code value="CC"/>
+                <display value="Cédula de Ciudadanía"/>
+            </coding>
+        </type>
+        <!-- 2.2: Número de documento de identificación del usuario -->
+        <value value="1029384756K"/>
+    </identifier>
+    <active value="true"/>
+    <!-- 3: Nombres y apellidos del usuario -->
+    <name>
+        <use value="official"/>
+        <family value="Restrepo Rodríguez">
+            <extension id="humanname-fathers-family" url="http://hl7.org/fhir/StructureDefinition/humanname-fathers-family">
+                <!-- 3.1: Primer apellido -->
+                <valueString value="Restrepo" />
+            </extension>
+            <extension id="humanname-mothers-family" url="http://hl7.org/fhir/StructureDefinition/humanname-mothers-family">
+                <!-- 3.2: Segundo apellido -->
+                <valueString value="Rodríguez" />
+            </extension>
+        </family>
+        <!-- 3.3: Primer nombre -->
+        <given value="Jorge"/>
+        <!-- 3.4: Segundo nombre -->
+        <given value="Carlos"/>
+    </name>
+    <!-- 7: Género del usuario (male | female | other | unknown) -->
+    <gender value="male"/>
+    <!-- 4: Fecha de nacimiento del usuario -->
+    <birthDate value="1962-08-19"/>
+    <address>
+        <!-- 15: Zona territorial donde reside el usuario -->
+        <extension id="zona-territorial" url="http://fhir.minsalud.gov.co/StructureDefinition/zona-territorial">
+            <valueCodeableConcept>
+                <coding>
+                    <system value="http://fhir.minsalud.gov.co/terminologies-systems/zona-territorial"/>
+                    <code value="1"/>
+                    <display value="Urbano"/>
+                </coding>
+            </valueCodeableConcept>
+        </extension>
+        <!-- 12: Municipio de residencia habitual del usuario -->
+        <!-- 12.2: Nombre del municipio de residencia habitual del usuario del servicio de salud -->
+        <city value="Bogotá D.C.">
+            <extension id="divipola-municipio" url="http://fhir.minsalud.gov.co/StructureDefinition/divipola-municipio">
+                <valueCoding>
+                    <system value="http://fhir.minsalud.gov.co/terminologies-systems/divipola"/>
+                    <!-- 12.1: Código del municipio de residencia habitual del usuario del servicio de salud -->
+                    <code value="11001"/>
+                </valueCoding>
+            </extension>
+        </city>
+        <!-- 11: País de residencia habitual del usuario -->
+        <!-- 11.2: Nombre del país de residencia habitual del usuario del servicio de salud -->
+        <country value="Colombia">
+            <extension id="codigo-pais" url="http://fhir.minsalud.gov.co/StructureDefinition/codigo-pais">
+                <valueCodeableConcept>
+                    <coding>
+                        <system value="urn:iso:std:iso:3166"/>
+                        <!-- 11.1: Código del país de residencia habitual del usuario del servicio de salud -->
+                        <code value="CO"/>
+                    </coding>
+                </valueCodeableConcept>
+            </extension>
+        </country>
+    </address>
+    <!-- 16: Entidad que responde por el plan de beneficios en salud, con cargo a la UPC -->
+    <managingOrganization>
+        <reference value="Organization/codAdminSalud-EPS1000"/>
+    </managingOrganization>
+</Patient>

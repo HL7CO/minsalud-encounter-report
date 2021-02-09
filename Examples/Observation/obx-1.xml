@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+*****************************************************************************
+*   EJEMPLO DE RECURSO FHIR                                                 *
+*   Estándar: HL7 FHIR® R4                                                  *
+*   Recurso tipo: Observation                                               *
+*   Fecha: 2019-11-05                                                       *
+*   Organización:   HL7 Colombia                                            *
+*   Autor:  Mario Enrique Cortés <mario.cortes@hl7co.org>                   *
+*   Nota:   Este recurso tiene como finalidad servir de ejemplo para una    *
+*           prueba de concepto.                                             *
+*           No se recomienda el uso en producción de derivaciones de los    *
+*           ejemplos de recursos FHIR asociados a este ejercicio.           *
+*           Será necesario un análisis más detallado del escenario de       *
+*           interoperabilidad, prácticas, requisitos, regulaciones,         *
+*           factibilidad y elementos de dato, necesarios para definir un    *
+*           perfil que adapte los recursos FHIR al caso particular.         *
+*****************************************************************************
+-->
+<!-- Valoración clínica o resultado de laboratorio -->
+<Observation xmlns="http://hl7.org/fhir">
+    <id value="obx-1"/>
+    <text>
+        <status value="generated"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <h4>Paciente: Jorge Carlos Restrepo Rodríguez</h4>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th colspan="5">Valoración clínica o resultado de laboratorio</th>
+                    </tr>
+                    <tr>
+                        <th colspan="2">Instrumento de evaluación de valoración clínica o del resultado en salud</th>
+                        <th colspan="2">Valor</th>
+                        <th rowspan="2">Fecha y hora</th>
+                    </tr>
+                    <tr>
+                        <th>Código</th>
+                        <th>Observación</th>
+                        <th>Valor numérico</th>
+                        <th>Valor Parámetro</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>90.3.4.26</td>
+                        <td>HEMOGLOBINA GLICOSILADA AUTOMATIZADA</td>
+                        <td>5.3 %</td>
+                        <td></td>
+                        <td>2019/Nov/01 11:02:14</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </text>
+    <status value="final"/>
+    <!-- FHIR: Código de clasificación de la categoría de observación (laboratorio, signos vitales, imagenología, examen físico, etc) -->
+    <category>
+        <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
+            <code value="laboratory"/>
+            <display value="Laboratory"/>
+        </coding>
+    </category>
+    <!-- 43: Instrumento de evaluación de valoración clínica o del resultado en salud. -->
+    <code>
+        <coding>
+            <system value="http://fhir.minsalud.gov.co/terminologies-systems/cups"/>
+            <code value="90.3.4.26"/>
+            <display value="HEMOGLOBINA GLICOSILADA AUTOMATIZADA"/>
+        </coding>
+    </code>
+    <!-- 42: Fecha del resultado de la valoración clínica o del resultado de laboratorio. -->
+    <effectiveDateTime value="2019-11-01T11:02:14.097-05:00"/>
+    <!-- 44: Resultado observado en parámetro (ejemplo de sintaxis) 
+    (reactivo | no reactivo | activo | inactivo | benigno | maligno | alto | bajo | ...) -->
+    <!-- <valueCodeableConcept>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="11214006"/>
+            <display value="reactivo"/>
+        </coding>
+    </valueCodeableConcept> -->
+    <!-- 45: Resultado observado en valor numérico -->
+    <valueQuantity>
+        <value value="5.3"/>
+        <unit value="%"/>
+    </valueQuantity>
+</Observation>

@@ -1,0 +1,41 @@
+{
+    "resourceType": "Consent",
+    "id": "consent-1",
+    "status": "active",
+    "scope": {
+        "coding": [
+            {
+                "system": "http://terminology.hl7.org/CodeSystem/consentscope",
+                "code": "adr",
+                "display": "Advanced Care Directive"
+            }
+        ]
+    },
+    "category": [
+        {
+            "coding": [
+                {
+                    "system": "http://terminology.hl7.org/CodeSystem/consentcategorycodes",
+                    "code": "59284-0",
+                    "display": "Patient Consent"
+                }
+            ]
+        }
+    ],
+    "patient": {"reference": "Patient/17b87319-eefc-4a61-ad9f-6dc6ec6be16e"},
+    "dateTime": "2015-03-18",
+    "provision": {
+        "type": "permit",
+        "code": [
+            {
+                "coding": [
+                    {
+                        "system": "http://fhir.minsalud.gov.co/terminologies-systems/tipo-voluntad-anticipada",
+                        "code": "1",
+                        "display": "Donación"
+                    }
+                ]
+            }
+        ]
+    }
+}

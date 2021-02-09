@@ -1,0 +1,64 @@
+{
+    "resourceType": "MedicationRequest",
+    "id": "medication-request-1",
+    "status": "active",
+    "intent": "order",
+    "category": [
+        {
+            "coding": [
+                {
+                    "system": "http://fhir.minsalud.gov.co/terminologies-systems/tipo-insumo",
+                    "code": "Medicamento con uso con registro sanitario",
+                    "display": "2"
+                }
+            ]
+        }
+    ],
+    "medicationReference": {"reference": "#medication-1"},
+    "subject": {"reference": "Patient/17b87319-eefc-4a61-ad9f-6dc6ec6be16e"},
+    "authoredOn": "2019-11-01T11:12:00.000-05:00",
+    "performer": {"reference": "Practitioner/rethus-cc759836522H"},
+    "reasonCode": [
+        {
+            "coding": [
+                {
+                    "system": "http://fhir.minsalud.gov.co/terminologies-systems/finalidad-tecnologia-salud",
+                    "code": "15",
+                    "display": "Tratamiento"
+                }
+            ]
+        }
+    ],
+    "dosageInstruction": [
+        {
+            "route": {
+                "coding": [
+                    {
+                        "system": "http://fhir.minsalud.gov.co/terminologies-systems/ich-m5-via-admin",
+                        "code": "ORAL",
+                        "display": "Administración en o a través de la boca"
+                    }
+                ]
+            },
+            "doseAndRate": [
+                {
+                    "doseQuantity": {
+                        "value": 1,
+                        "unit": "TABLETA"
+                    },
+                    "rateQuantity": {
+                        "value": 8,
+                        "unit": "h"
+                    }
+                }
+            ]
+        }
+    ],
+    "dispenseRequest": {
+        "quantity": {"value": 9},
+        "expectedSupplyDuration": {
+            "value": 3,
+            "unit": "d"
+        }
+    }
+}

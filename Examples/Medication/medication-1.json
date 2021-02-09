@@ -1,0 +1,45 @@
+{
+    "resourceType": "Medication",
+    "id": "medication-1",
+    "code": {
+        "coding": [
+            {
+                "system": "http://fhir.minsalud.gov.co/terminologies-systems/cum",
+                "code": "19908266.44",
+                "display": "ADVIL® TABLETAS RECUBIERTAS"
+            }
+        ]
+    },
+    "form": {
+        "coding": [
+            {
+                "system": "http://fhir.minsalud.gov.co/terminologies-systems/ich-m5-forma-farmaceutica",
+                "code": "TABLETA",
+                "display": "Tableta"
+            }
+        ]
+    },
+    "ingredient": [
+        {
+            "itemCodeableConcept": {
+                "coding": [
+                    {
+                        "system": "http://www.whocc.no/atc",
+                        "code": "M01AE01",
+                        "display": "IBUPROFENO"
+                    }
+                ]
+            },
+            "strength": {
+                "numerator": {
+                    "value": 1,
+                    "unit": "TABLETA"
+                },
+                "denominator": {
+                    "value": 200,
+                    "unit": "mg"
+                }
+            }
+        }
+    ]
+}

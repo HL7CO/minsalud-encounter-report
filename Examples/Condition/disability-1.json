@@ -1,0 +1,14 @@
+{
+    "resourceType": "Condition",
+    "id": "disability-1",
+    "code": {
+        "coding": [
+            {
+                "system": "http://fhir.minsalud.gov.co/terminologies-systems/clasificación-discapacidad",
+                "code": "3",
+                "display": "Discapacidad visual"
+            }
+        ]
+    },
+    "subject": {"reference": "Patient/17b87319-eefc-4a61-ad9f-6dc6ec6be16e"}
+}

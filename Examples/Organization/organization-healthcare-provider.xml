@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+*****************************************************************************
+*   EJEMPLO DE RECURSO FHIR                                                 *
+*   Estándar: HL7 FHIR® R4                                                  *
+*   Recurso tipo: Organization                                              *
+*   Fecha: 2019-11-05                                                       *
+*   Organización:   HL7 Colombia                                            *
+*   Autor:  Mario Enrique Cortés <mario.cortes@hl7co.org>                   *
+*   Nota:   Este recurso tiene como finalidad servir de ejemplo para una    *
+*           prueba de concepto.                                             *
+*           No se recomienda el uso en producción de derivaciones de los    *
+*           ejemplos de recursos FHIR asociados a este ejercicio.           *
+*           Será necesario un análisis más detallado del escenario de       *
+*           interoperabilidad, prácticas, requisitos, regulaciones,         *
+*           factibilidad y elementos de dato, necesarios para definir un    *
+*           perfil que adapte los recursos FHIR al caso particular.         *
+*****************************************************************************
+-->
+<Organization xmlns="http://hl7.org/fhir">
+    <id value="codHabPreSalud-1100199991"/>
+    <text>
+        <status value="generated"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <h2>HOSPITAL GENERAL CENTRAL</h2>
+            <h4>Institución Prestadora de Servicios de Salud</h4>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th colspan="2">DATOS DE IDENTIFICACIÓN</th>
+                    </tr>
+                    <tr>
+                        <th>Tipo Identificación</th>
+                        <th>Identificación</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Código Habilitación</strong></td>
+                        <td>1100199991</td>
+                    </tr>
+                    <tr>
+                        <td><strong>NIT</strong></td>
+                        <td>900.111.111-1</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </text>
+    <identifier>
+        <use value="official"/>
+        <system value="http://prestadores.minsalud.gov.co/habilitacion"/>
+        <value value="1100199991"/>
+    </identifier>
+    <identifier>
+        <use value="official"/>
+        <system value="http://dian.gov.co/nit"/>
+        <value value="900.111.111-1"/>
+    </identifier>
+    <type>
+        <coding>
+            <system value="http://fhir.minsalud.gov.co/terminologies-systems/tipo-organizacion"/>
+            <code value="IPS"/>
+            <display value="Institución Prestadora de Servicios de Salud"/>
+        </coding>
+    </type>
+    <name value="HOSPITAL GENERAL CENTRAL"/>
+</Organization>

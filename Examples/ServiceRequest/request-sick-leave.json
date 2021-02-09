@@ -1,0 +1,38 @@
+{
+    "resourceType": "ServiceRequest",
+    "id": "request-sick-leave",
+    "fhir_comments": [" Licencia por incapacidad "],
+    "status": "active",
+    "intent": "order",
+    "code": {
+        "coding": [
+            {
+                "system": "http://snomed.info/sct",
+                "code": "224453000",
+                "display": "solicita licencia por enfermedad"
+            }
+        ]
+    },
+    "orderDetail": [
+        {
+            "fhir_comments": [" 51: Identificador para determinar el tipo de incapacidad temporal si la hubo. "],
+            "coding": [
+                {
+                    "system": "http://fhir.minsalud.gov.co/terminologies-systems/tipo-incapacidad-temporal",
+                    "code": "1",
+                    "display": "Nueva"
+                }
+            ]
+        }
+    ],
+    "subject": {"reference": "Patient/17b87319-eefc-4a61-ad9f-6dc6ec6be16e"},
+    "occurrenceTiming": {
+        "fhir_comments": [" 52: Días de incapacidad "],
+        "repeat": {
+            "boundsDuration": {
+                "value": 3,
+                "unit": "d"
+            }
+        }
+    }
+}

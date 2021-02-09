@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+*****************************************************************************
+*   EJEMPLO DE RECURSO FHIR                                                 *
+*   Estándar: HL7 FHIR® R4                                                  *
+*   Recurso tipo: Consent                                                   *
+*   Fecha: 2019-11-05                                                       *
+*   Organización:   HL7 Colombia                                            *
+*   Autor:  Mario Enrique Cortés <mario.cortes@hl7co.org>                   *
+*   Nota:   Este recurso tiene como finalidad servir de ejemplo para una    *
+*           prueba de concepto.                                             *
+*           No se recomienda el uso en producción de derivaciones de los    *
+*           ejemplos de recursos FHIR asociados a este ejercicio.           *
+*           Será necesario un análisis más detallado del escenario de       *
+*           interoperabilidad, prácticas, requisitos, regulaciones,         *
+*           factibilidad y elementos de dato, necesarios para definir un    *
+*           perfil que adapte los recursos FHIR al caso particular.         *
+*****************************************************************************
+-->
+<!-- 9: Voluntad anticipada del usuario -->
+<Consent xmlns="http://hl7.org/fhir">
+    <id value="consent-1"/>
+    <text>
+        <status value="generated"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <h4>Paciente: Jorge Carlos Restrepo Rodríguez</h4>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th colspan="3">Voluntad anticipada del usuario</th>
+                    </tr>
+                    <tr>
+                        <th>Código</th>
+                        <th>Tipo</th>
+                        <th>Fecha</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Donación</td>
+                        <td>2015/Mar/18</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </text>
+    <status value="active"/>
+    <scope>
+        <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/consentscope"/>
+            <code value="adr"/>
+            <display value="Advanced Care Directive"/>
+        </coding>
+    </scope>
+    <category>
+        <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/consentcategorycodes"/>
+            <code value="59284-0"/>
+            <display value="Patient Consent"/>
+        </coding>
+    </category>
+    <patient>
+        <reference value="Patient/17b87319-eefc-4a61-ad9f-6dc6ec6be16e"/>
+    </patient>
+    <!-- 9.1: Fecha y hora de suscripción del documento de voluntad anticipada -->
+    <dateTime value="2015-03-18"/>
+    <!-- 9.2: Tipo de voluntad anticipada -->
+    <provision>
+        <type value="permit"/>
+        <code>
+            <coding>
+                <system value="http://fhir.minsalud.gov.co/terminologies-systems/tipo-voluntad-anticipada"/>
+                <code value="1"/>
+                <display value="Donación"/>
+            </coding>
+        </code>
+    </provision>
+</Consent>

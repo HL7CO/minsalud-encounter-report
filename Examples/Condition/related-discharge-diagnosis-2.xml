@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+*****************************************************************************
+*   EJEMPLO DE RECURSO FHIR                                                 *
+*   Estándar: HL7 FHIR® R4                                                  *
+*   Recurso tipo: Condition                                                 *
+*   Fecha: 2019-11-05                                                       *
+*   Organización:   HL7 Colombia                                            *
+*   Autor:  Mario Enrique Cortés <mario.cortes@hl7co.org>                   *
+*   Nota:   Este recurso tiene como finalidad servir de ejemplo para una    *
+*           prueba de concepto.                                             *
+*           No se recomienda el uso en producción de derivaciones de los    *
+*           ejemplos de recursos FHIR asociados a este ejercicio.           *
+*           Será necesario un análisis más detallado del escenario de       *
+*           interoperabilidad, prácticas, requisitos, regulaciones,         *
+*           factibilidad y elementos de dato, necesarios para definir un    *
+*           perfil que adapte los recursos FHIR al caso particular.         *
+*****************************************************************************
+-->
+<!-- 40: Diagnóstico relacionado No 2 de egreso -->
+<Condition xmlns="http://hl7.org/fhir">
+    <id value="related-discharge-diagnosis-2"/>
+    <text>
+        <status value="generated"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <h4>Paciente: Jorge Carlos Restrepo Rodríguez</h4>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th colspan="3">Diagnóstico relacionado de egreso</th>
+                    </tr>
+                    <tr>
+                        <th>No</th>
+                        <th>Código</th>
+                        <th>Categoría</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2</td>
+                        <td>G448</td>
+                        <td>OTROS SINDROMES DE CEFALEA ESPECIFICADOS</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </text>
+    <code>
+        <coding>
+            <system value="http://hl7.org/fhir/sid/icd-10"/>
+            <!-- 40.1: Código del diagnóstico relacionado 2 -->
+            <code value="G448"/>
+            <!-- 40.2: Nombre del diagnóstico relacionado 2 -->
+            <display value="OTROS SINDROMES DE CEFALEA ESPECIFICADOS"/>
+        </coding>
+    </code>
+    <subject>
+        <reference value="Patient/17b87319-eefc-4a61-ad9f-6dc6ec6be16e"/>
+    </subject>
+</Condition>

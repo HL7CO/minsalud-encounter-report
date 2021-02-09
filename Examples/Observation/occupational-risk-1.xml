@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+*****************************************************************************
+*   EJEMPLO DE RECURSO FHIR                                                 *
+*   Estándar: HL7 FHIR® R4                                                  *
+*   Recurso tipo: Observation                                               *
+*   Fecha: 2019-11-05                                                       *
+*   Organización:   HL7 Colombia                                            *
+*   Autor:  Mario Enrique Cortés <mario.cortes@hl7co.org>                   *
+*   Nota:   Este recurso tiene como finalidad servir de ejemplo para una    *
+*           prueba de concepto.                                             *
+*           No se recomienda el uso en producción de derivaciones de los    *
+*           ejemplos de recursos FHIR asociados a este ejercicio.           *
+*           Será necesario un análisis más detallado del escenario de       *
+*           interoperabilidad, prácticas, requisitos, regulaciones,         *
+*           factibilidad y elementos de dato, necesarios para definir un    *
+*           perfil que adapte los recursos FHIR al caso particular.         *
+*****************************************************************************
+-->
+<!-- 56: Exposición a factores de riesgo ocupacionales -->
+<Observation xmlns="http://hl7.org/fhir">
+    <id value="occupational-risk-1"/>
+    <text>
+        <status value="generated"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <h4>Paciente: Jorge Carlos Restrepo Rodríguez</h4>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th colspan="2">Exposición a factores de riesgo ocupacionales</th>
+                    </tr>
+                    <tr>
+                        <th>Tipo de factor de riesgo</th>
+                        <th>Nombre del factor de riesgo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ergonómicos</td>
+                        <td>Silla de trabajo no ergonómica</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </text>
+    <status value="final"/>
+    <code>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="16090731000119102"/>
+            <display value="exposición ocupacional a factor de riesgo"/>
+        </coding>
+    </code>
+    <!-- 56.1: Tipo de factor de riesgo -->
+    <valueCodeableConcept>
+        <coding>
+            <system value="http://fhir.minsalud.gov.co/terminologies-systems/tipo-factor-riesgo"/>
+            <code value="3"/>
+            <display value="Ergonómicos"/>
+        </coding>
+    </valueCodeableConcept>
+    <!-- 56.2: Nombre del factor de riesgo -->
+    <note>
+        <text value="Silla de trabajo no ergonómica"/>
+    </note>
+</Observation>

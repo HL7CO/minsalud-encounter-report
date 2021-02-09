@@ -1,0 +1,30 @@
+{
+    "resourceType": "Observation",
+    "id": "obx-1",
+    "status": "final",
+    "category": [
+        {
+            "coding": [
+                {
+                    "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                    "code": "laboratory",
+                    "display": "Laboratory"
+                }
+            ]
+        }
+    ],
+    "code": {
+        "coding": [
+            {
+                "system": "http://fhir.minsalud.gov.co/terminologies-systems/cups",
+                "code": "90.3.4.26",
+                "display": "HEMOGLOBINA GLICOSILADA AUTOMATIZADA"
+            }
+        ]
+    },
+    "effectiveDateTime": "2019-11-01T11:02:14.097-05:00",
+    "valueQuantity": {
+        "value": 5.3,
+        "unit": "%"
+    }
+}

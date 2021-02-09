@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+*****************************************************************************
+*   EJEMPLO DE RECURSO FHIR                                                 *
+*   Estándar: HL7 FHIR® R4                                                  *
+*   Recurso tipo: Condition                                                 *
+*   Fecha: 2019-11-05                                                       *
+*   Organización:   HL7 Colombia                                            *
+*   Autor:  Mario Enrique Cortés <mario.cortes@hl7co.org>                   *
+*   Nota:   Este recurso tiene como finalidad servir de ejemplo para una    *
+*           prueba de concepto.                                             *
+*           No se recomienda el uso en producción de derivaciones de los    *
+*           ejemplos de recursos FHIR asociados a este ejercicio.           *
+*           Será necesario un análisis más detallado del escenario de       *
+*           interoperabilidad, prácticas, requisitos, regulaciones,         *
+*           factibilidad y elementos de dato, necesarios para definir un    *
+*           perfil que adapte los recursos FHIR al caso particular.         *
+*****************************************************************************
+-->
+<!-- 38: Diagnóstico principal de egreso -->
+<Condition xmlns="http://hl7.org/fhir">
+    <id value="main-discharge-diagnosis"/>
+    <text>
+        <status value="generated"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <h4>Paciente: Jorge Carlos Restrepo Rodríguez</h4>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th colspan="2">Diagnóstico principal de egreso</th>
+                    </tr>
+                    <tr>
+                        <th>Código</th>
+                        <th>Categoría</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>G442</td>
+                        <td>CEFALEA DEBIDA A TENSION</td>
+                    </tr>
+                </tbody>
+            </table>
+            <span><strong>Tipo de diagnóstico principal de egreso: </strong>Impresión diagnóstica</span>
+        </div>
+    </text>
+    <code>
+        <coding>
+            <system value="http://hl7.org/fhir/sid/icd-10"/>
+            <!-- 38.1: Código del diagnóstico de egreso -->
+            <code value="G442"/>
+            <!-- 38.2: Nombre del diagnóstico de egreso -->
+            <display value="CEFALEA DEBIDA A TENSION"/>
+        </coding>
+    </code>
+    <subject>
+        <reference value="Patient/17b87319-eefc-4a61-ad9f-6dc6ec6be16e"/>
+    </subject>
+    <!-- 37: Tipo de diagnóstico principal de egreso -->
+    <stage>
+        <type>
+            <coding>
+                <system value="http://fhir.minsalud.gov.co/terminologies-systems/tipo-diagnostico"/>
+                <code value="1"/>
+                <display value="Impresión diagnóstica"/>
+            </coding>
+        </type>
+    </stage>
+</Condition>

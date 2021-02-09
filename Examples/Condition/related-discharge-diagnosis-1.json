@@ -1,0 +1,14 @@
+{
+    "resourceType": "Condition",
+    "id": "related-discharge-diagnosis-1",
+    "code": {
+        "coding": [
+            {
+                "system": "http://hl7.org/fhir/sid/icd-10",
+                "code": "G440",
+                "display": "SINDROME DE CEFALEA EN RACIMOS"
+            }
+        ]
+    },
+    "subject": {"reference": "Patient/17b87319-eefc-4a61-ad9f-6dc6ec6be16e"}
+}

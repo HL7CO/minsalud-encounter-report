@@ -1,0 +1,28 @@
+{
+    "resourceType": "Condition",
+    "id": "main-admission-diagnosis",
+    "code": {
+        "coding": [
+            {
+                "system": "http://hl7.org/fhir/sid/icd-10",
+                "code": "R51",
+                "display": "CEFALEA"
+            }
+        ]
+    },
+    "subject": {"reference": "Patient/17b87319-eefc-4a61-ad9f-6dc6ec6be16e"},
+    "encounter": {"reference": "#encounter"},
+    "stage": [
+        {
+            "type": {
+                "coding": [
+                    {
+                        "system": "http://fhir.minsalud.gov.co/terminologies-systems/tipo-diagnostico",
+                        "code": "1",
+                        "display": "Impresión diagnóstica"
+                    }
+                ]
+            }
+        }
+    ]
+}

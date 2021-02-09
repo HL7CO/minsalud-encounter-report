@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+*****************************************************************************
+*   EJEMPLO DE RECURSO FHIR                                                 *
+*   Estándar: HL7 FHIR® R4                                                  *
+*   Recurso tipo: Encounter                                                 *
+*   Fecha: 2019-11-05                                                       *
+*   Organización:   HL7 Colombia                                            *
+*   Autor:  Mario Enrique Cortés <mario.cortes@hl7co.org>                   *
+*   Nota:   Este recurso tiene como finalidad servir de ejemplo para una    *
+*           prueba de concepto.                                             *
+*           No se recomienda el uso en producción de derivaciones de los    *
+*           ejemplos de recursos FHIR asociados a este ejercicio.           *
+*           Será necesario un análisis más detallado del escenario de       *
+*           interoperabilidad, prácticas, requisitos, regulaciones,         *
+*           factibilidad y elementos de dato, necesarios para definir un    *
+*           perfil que adapte los recursos FHIR al caso particular.         *
+*****************************************************************************
+-->
+<Encounter xmlns="http://hl7.org/fhir">
+    <id value="encounter"/>
+    <text>
+        <status value="generated"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <h4>Paciente: Jorge Carlos Restrepo Rodríguez</h4>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th colspan="2">Contacto con el servicio de salud</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Fecha y hora de ingreso del usuario al servicio de salud: </strong></td>
+                        <td>2019/Nov/01 10:45:00</td>
+                    </tr>
+                    <tr>
+                        <th colspan="2">Ámbito de atención en el que se realiza el procedimiento</th>
+                    </tr>
+                    <tr>
+                        <th>Código</th>
+                        <th>Nombre</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Ambulatorio Intramural</td>
+                    </tr>
+                    <tr>
+                        <th colspan="2">Entorno donde se realiza la atención</th>
+                    </tr>
+                    <tr>
+                        <th>Código</th>
+                        <th>Nombre</th>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Entorno Institucional</td>
+                    </tr>
+                    <tr>
+                        <th colspan="2">Vía de ingreso al servicio de salud</th>
+                    </tr>
+                    <tr>
+                        <th>Código</th>
+                        <th>Nombre</th>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Directamente por el usuario a consulta externa</td>
+                    </tr>
+                    <tr>
+                        <th colspan="2">Causa que motiva la atencion</th>
+                    </tr>
+                    <tr>
+                        <th>Código</th>
+                        <th>Nombre</th>
+                    </tr>
+                    <tr>
+                        <td>38</td>
+                        <td>Enfermedad general</td>
+                    </tr>
+                    <tr>
+                        <th colspan="2">Triage</th>
+                    </tr>
+                    <tr>
+                        <th>Fecha y hora del triage</th>
+                        <th>Clasificación del Triage</th>
+                    </tr>
+                    <tr>
+                        <td>2019/Nov/01 10:48:00</td>
+                        <td>Triage V</td>
+                    </tr>
+                    <tr>
+                        <th colspan="2">Diagnóstico principal de ingreso</th>
+                    </tr>
+                    <tr>
+                        <th>Código</th>
+                        <th>Nombre</th>
+                    </tr>
+                    <tr>
+                        <td>R51</td>
+                        <td>CEFALEA</td>
+                    </tr>
+                    <tr>
+                        <th colspan="2">Tipo de diagnóstico principal de ingreso</th>
+                    </tr>
+                    <tr>
+                        <th>Código</th>
+                        <th>Nombre</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Impresión diagnóstica</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </text>
+    <!-- 20: Vía de ingreso al servicio de salud -->
+    <extension id="admit-source" url="http://hl7.org/fhir/StructureDefinition/admit-source">
+        <valueCodeableConcept>
+            <coding>
+                <system value="http://fhir.minsalud.gov.co/terminologies-systems/via-ingreso"/>
+                <code value="2"/>
+                <display value="Directamente por el usuario a consulta externa"/>
+            </coding>
+        </valueCodeableConcept>
+    </extension>
+    <status value="finished"/>
+    <!-- 17: Fecha y hora de ingreso del usuario al sericio de salud -->
+    <statusHistory>
+        <status value="in-progress"/>
+        <period>
+            <start value="2019-11-01T10:45:00.000-05:00"/>
+        </period>
+    </statusHistory>
+    <!-- 49: Fecha y hora de finalización de la atención -->
+    <statusHistory>
+        <status value="finished"/>
+        <period>
+            <start value="2019-11-01T11:15:00.000-05:00"/>
+        </period>
+    </statusHistory>
+    <class>
+        <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
+        <code value="AMB"/>
+        <display value="ambulatory"/>
+    </class>
+    <!-- 18: Identificador para determinar el ámbito de atención en el que se realiza el procedimiento de salud al usuario -->
+    <type>
+        <coding>
+            <system value="http://fhir.minsalud.gov.co/terminologies-systems/ambito-atencion"/>
+            <code value="1"/>
+            <display value="Ambulatorio Intramural"/>
+        </coding>
+    </type>
+    <subject>
+        <reference value="Patient/17b87319-eefc-4a61-ad9f-6dc6ec6be16e"/>
+    </subject>
+    <!-- 57: Identificación del talento humano en salud que realizó el egreso -->
+    <participant>
+        <type>
+            <coding>
+                <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
+                <code value="DIS"/>
+                <display value="discharger"/>
+            </coding>
+        </type>
+        <individual>
+            <reference value="Practtioner/rethus-cc759836522H"/>
+        </individual>
+    </participant> 
+    <!-- 21: Causa que motiva la atencion -->
+    <reasonCode>
+        <coding>
+            <system value="http://fhir.minsalud.gov.co/terminologies-systems/motivo-atencion"/>
+            <code value="38"/>
+            <display value="Enfermedad general"/>
+        </coding>
+    </reasonCode>
+    <!-- 24: Diagnóstico principal de ingreso -->
+    <diagnosis>
+        <condition>
+            <reference value="#main-admission-diagnosis"/>
+        </condition>
+        <use>
+            <coding>
+                <system value="http://fhir.minsalud.gov.co/terminologies-systems/rol-diagnostico"/>
+                <code value="1"/>
+                <display value="Diagnóstico principal de ingreso"/>
+            </coding>
+        </use>
+    </diagnosis>
+    <!-- 38: Diagnóstico principal de egreso -->
+    <diagnosis>
+        <condition>
+            <reference value="#main-discharge-diagnosis"/>
+        </condition>
+        <use>
+            <coding>
+                <system value="http://fhir.minsalud.gov.co/terminologies-systems/rol-diagnostico"/>
+                <code value="2"/>
+                <display value="Diagnóstico principal de egreso"/>
+            </coding>
+        </use>
+    </diagnosis>
+    <!-- 39: Diagnóstico relacionado No 1 de egreso -->
+    <diagnosis>
+        <condition>
+            <reference value="#related-discharge-diagnosis-1"/>
+        </condition>
+        <use>
+            <coding>
+                <system value="http://fhir.minsalud.gov.co/terminologies-systems/rol-diagnostico"/>
+                <code value="3"/>
+                <display value="Diagnóstico relacionado de egreso"/>
+            </coding>
+        </use>
+        <!-- 39.a: entero que indica que se trata del 1er diagnóstico relacionado de egreso -->
+        <rank value="1"/>
+    </diagnosis>
+    <!-- 40: Diagnóstico relacionado No 2 de egreso -->
+    <diagnosis>
+        <condition>
+            <reference value="#related-discharge-diagnosis-2"/>
+        </condition>
+        <use>
+            <coding>
+                <system value="http://fhir.minsalud.gov.co/terminologies-systems/rol-diagnostico"/>
+                <code value="3"/>
+                <display value="Diagnóstico relacionado de egreso"/>
+            </coding>
+        </use>
+        <!-- 40.a: entero que indica que se trata del 2o diagnóstico relacionado de egreso -->
+        <rank value="2"/>
+    </diagnosis>
+    <!-- 41: Diagnóstico relacionado No 3 de egreso -->
+    <diagnosis>
+        <condition>
+            <reference value="#related-discharge-diagnosis-3"/>
+        </condition>
+        <use>
+            <coding>
+                <system value="http://fhir.minsalud.gov.co/terminologies-systems/rol-diagnostico"/>
+                <code value="3"/>
+                <display value="Diagnóstico relacionado de egreso"/>
+            </coding>
+        </use>
+        <!-- 41.a: entero que indica que se trata del 3er diagnóstico relacionado de egreso -->
+        <rank value="3"/>
+    </diagnosis>
+    <!-- 46: Diagnóstico de la complicación -->
+    <diagnosis>
+        <condition>
+            <reference value="#complication-diagnosis-1"/>
+        </condition>
+        <use>
+            <coding>
+                <system value="http://fhir.minsalud.gov.co/terminologies-systems/rol-diagnostico"/>
+                <code value="4"/>
+                <display value="Diagnóstico de la complicación"/>
+            </coding>
+        </use>
+    </diagnosis>
+    <!-- 48: Diagnóstico de la muerte (ejemplo de sintaxis) -->
+    <!-- <diagnosis>
+        <condition>
+            <reference value="#death-diagnosis"/>
+        </condition>
+        <use>
+            <coding>
+                <system value="http://fhir.minsalud.gov.co/terminologies-systems/rol-diagnostico"/>
+                <code value="5"/>
+                <display value="Diagnóstico de muerte"/>
+            </coding>
+        </use>
+    </diagnosis> -->
+    <hospitalization>
+        <!-- 50: Código del prestador de servicios de salud a donde se refiere (referencia) -->
+        <destination>
+            <reference value="Organization/codHabPreSalud-1100199991"/>
+        </destination>
+        <!-- 47: Condición del usuario a la salida -->
+        <dischargeDisposition>
+            <coding>
+                <system value="http://fhir.minsalud.gov.co/terminologies-systems/condicion-usuario-salida"/>
+                <code value="1"/>
+                <display value="Paciente con destino a su domicilio"/>
+            </coding>
+        </dischargeDisposition>
+    </hospitalization>
+    <!-- 19: Entorno donde se realiza la atención -->
+    <location>
+        <location/>
+        <physicalType>
+            <coding>
+                <system value="http://fhir.minsalud.gov.co/terminologies-systems/entorno-atencion"/>
+                <code value="5"/>
+                <display value="Entorno Institucional"/>
+            </coding>
+        </physicalType>
+    </location>
+</Encounter>

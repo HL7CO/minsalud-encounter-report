@@ -1,0 +1,28 @@
+{
+    "resourceType": "FamilyMemberHistory",
+    "id": "family-history-1",
+    "status": "completed",
+    "patient": {"reference": "Patient/17b87319-eefc-4a61-ad9f-6dc6ec6be16e"},
+    "relationship": {
+        "coding": [
+            {
+                "system": "http://fhir.minsalud.gov.co/terminologies-systems/parentesco",
+                "code": "4",
+                "display": "Abuelos"
+            }
+        ]
+    },
+    "condition": [
+        {
+            "code": {
+                "coding": [
+                    {
+                        "system": "http://fhir.minsalud.gov.co/terminologies-systems/condicion-salud-familiar",
+                        "code": "1",
+                        "display": "Hipertensión arterial"
+                    }
+                ]
+            }
+        }
+    ]
+}

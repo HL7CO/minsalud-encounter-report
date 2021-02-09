@@ -1,0 +1,24 @@
+{
+    "resourceType": "Observation",
+    "id": "ocupation-1",
+    "status": "final",
+    "code": {
+        "coding": [
+            {
+                "system": "http://snomed.info/sct",
+                "code": "14679004",
+                "display": "ocupación"
+            }
+        ]
+    },
+    "subject": {"reference": "Patient/17b87319-eefc-4a61-ad9f-6dc6ec6be16e"},
+    "valueCodeableConcept": {
+        "coding": [
+            {
+                "system": "http://fhir.minsalud.gov.co/terminologies-systems/ciou",
+                "code": "1210",
+                "display": "Directores generales y gerentes generales de empresa"
+            }
+        ]
+    }
+}

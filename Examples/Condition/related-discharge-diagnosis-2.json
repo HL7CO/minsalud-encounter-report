@@ -1,0 +1,14 @@
+{
+    "resourceType": "Condition",
+    "id": "related-discharge-diagnosis-2",
+    "code": {
+        "coding": [
+            {
+                "system": "http://hl7.org/fhir/sid/icd-10",
+                "code": "G448",
+                "display": "OTROS SINDROMES DE CEFALEA ESPECIFICADOS"
+            }
+        ]
+    },
+    "subject": {"reference": "Patient/17b87319-eefc-4a61-ad9f-6dc6ec6be16e"}
+}

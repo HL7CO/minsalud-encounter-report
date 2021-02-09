@@ -1,0 +1,25 @@
+{
+    "resourceType": "Observation",
+    "id": "triage",
+    "status": "final",
+    "code": {
+        "coding": [
+            {
+                "system": "http://snomed.info/sct",
+                "code": "225390008",
+                "display": "triaje"
+            }
+        ]
+    },
+    "encounter": {"reference": "#encounter"},
+    "effectiveDateTime": "2019-11-01T10:48:00.000-05:00",
+    "valueCodeableConcept": {
+        "coding": [
+            {
+                "system": "http://fhir.minsalud.gov.co/terminologies-systems/clasificacion-triage",
+                "code": "5",
+                "display": "Triage V"
+            }
+        ]
+    }
+}

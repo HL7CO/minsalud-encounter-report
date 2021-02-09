@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+*****************************************************************************
+*   EJEMPLO DE RECURSO FHIR                                                 *
+*   Estándar: HL7 FHIR® R4                                                  *
+*   Recurso tipo: Medication                                                *
+*   Fecha: 2019-11-05                                                       *
+*   Organización:   HL7 Colombia                                            *
+*   Autor:  Mario Enrique Cortés <mario.cortes@hl7co.org>                   *
+*   Nota:   Este recurso tiene como finalidad servir de ejemplo para una    *
+*           prueba de concepto.                                             *
+*           No se recomienda el uso en producción de derivaciones de los    *
+*           ejemplos de recursos FHIR asociados a este ejercicio.           *
+*           Será necesario un análisis más detallado del escenario de       *
+*           interoperabilidad, prácticas, requisitos, regulaciones,         *
+*           factibilidad y elementos de dato, necesarios para definir un    *
+*           perfil que adapte los recursos FHIR al caso particular.         *
+*****************************************************************************
+-->
+<Medication xmlns="http://hl7.org/fhir">
+    <id value="medication-1"/>
+    <text>
+        <status value="generated"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <h4>Paciente: Jorge Carlos Restrepo Rodríguez</h4>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th colspan="2">Medicamento</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Código CUM: </strong></td>
+                        <td>19908266.44</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Nombre: </strong></td>
+                        <td>ADVIL® TABLETAS RECUBIERTAS</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Forma farmacéutica: </strong></td>
+                        <td>TABLETA</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Código ATC: </strong></td>
+                        <td>M01AE01</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Nombre: </strong></td>
+                        <td>IBUPROFENO</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Concentración: </strong></td>
+                        <td>200 mg</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </text>
+    <!-- 28: Identificación de la Tecnología de salud entregada o aplicada (medicamentos) -->
+    <code>
+        <coding>
+            <system value="http://fhir.minsalud.gov.co/terminologies-systems/cum"/>
+            <code value="19908266.44"/>
+            <display value="ADVIL® TABLETAS RECUBIERTAS"/>
+        </coding>
+    </code>
+    <!-- 30.1: Forma farmacéutica -->
+    <form>
+        <coding>
+            <system value="http://fhir.minsalud.gov.co/terminologies-systems/ich-m5-forma-farmaceutica"/>
+            <code value="TABLETA"/>
+            <display value="Tableta"/>
+        </coding>
+    </form>
+    <ingredient>
+        <itemCodeableConcept>
+            <coding>
+                <system value="http://www.whocc.no/atc"/>
+                <code value="M01AE01"/>
+                <display value="IBUPROFENO"/>
+            </coding>
+        </itemCodeableConcept>
+        <strength>
+            <numerator>
+                <value value="1"/>
+                <unit value="TABLETA"/>
+            </numerator>
+            <!-- 30.2 y 30.3: Concentración y Unidad de medida de la tecnología en salud -->
+            <denominator>
+                <value value="200"/>
+                <unit value="mg"/>
+            </denominator>
+        </strength>
+    </ingredient>
+</Medication>

@@ -1,0 +1,962 @@
+{
+  "resourceType": "Composition",
+  "id": "8371c461-c9fa-4462-8452-9ce2f6ddd022",
+  "text": {
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n            <h1>REPORTE DE ENCUENTRO DE ATENCIÓN EN SALUD</h1>\n            <table border=\"1\">\n                <thead>\n                    <tr>\n                        <th colspan=\"2\">Metadatos del documento</th>\n                    </tr>\n                </thead>\n                <tbody>\n                    <tr>\n                        <td><strong>ID: </strong></td>\n                        <td>8371c461-c9fa-4462-8452-9ce2f6ddd022</td>\n                    </tr>\n                    <tr>\n                        <td><strong>Paciente: </strong></td>\n                        <td>Jorge Carlos Restrepo Rodríguez</td>\n                    </tr>\n                    <tr>\n                        <td><strong>Documento de identificación: </strong></td>\n                        <td>CC 1029384756K</td>\n                    </tr>\n                    <tr>\n                        <td><strong>Fecha y hora de generación del documento: </strong></td>\n                        <td>2019/Nov/01 11:15:03</td>\n                    </tr>\n                    <tr>\n                        <td><strong>Autor: </strong></td>\n                        <td>Javier Cruz Fonseca</td>\n                    </tr>\n                </tbody>\n            </table>\n        </div>"
+  },
+  "contained": [
+    {
+      "resourceType": "Encounter",
+      "id": "encounter",
+      "extension": [
+        {
+          "id": "admit-source",
+          "url": "http://hl7.org/fhir/StructureDefinition/admit-source",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://fhir.minsalud.gov.co/terminologies-systems/via-ingreso",
+                "code": "2",
+                "display": "Directamente por el usuario a consulta externa"
+              }
+            ]
+          }
+        }
+      ],
+      "status": "finished",
+      "statusHistory": [
+        {
+          "status": "in-progress",
+          "period": {
+            "start": "2019-11-01T10:45:00.000-05:00"
+          }
+        },
+        {
+          "status": "finished",
+          "period": {
+            "start": "2019-11-01T11:15:00.000-05:00"
+          }
+        }
+      ],
+      "class": {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+        "code": "AMB",
+        "display": "ambulatory"
+      },
+      "type": [
+        {
+          "coding": [
+            {
+              "system": "http://fhir.minsalud.gov.co/terminologies-systems/ambito-atencion",
+              "code": "1",
+              "display": "Ambulatorio Intramural"
+            }
+          ]
+        }
+      ],
+      "subject": {
+        "reference": "Patient/17b87319-eefc-4a61-ad9f-6dc6ec6be16e"
+      },
+      "participant": [
+        {
+          "type": [
+            {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                  "code": "DIS",
+                  "display": "discharger"
+                }
+              ]
+            }
+          ],
+          "individual": {
+            "reference": "Practitioner/rethus-cc759836522H"
+          }
+        }
+      ],
+      "reasonCode": [
+        {
+          "coding": [
+            {
+              "system": "http://fhir.minsalud.gov.co/terminologies-systems/motivo-atencion",
+              "code": "38",
+              "display": "Enfermedad general"
+            }
+          ]
+        }
+      ],
+      "diagnosis": [
+        {
+          "condition": {
+            "reference": "#main-admission-diagnosis"
+          },
+          "use": {
+            "coding": [
+              {
+                "system": "http://fhir.minsalud.gov.co/terminologies-systems/rol-diagnostico",
+                "code": "1",
+                "display": "Diagnóstico principal de ingreso"
+              }
+            ]
+          }
+        },
+        {
+          "condition": {
+            "reference": "#main-discharge-diagnosis"
+          },
+          "use": {
+            "coding": [
+              {
+                "system": "http://fhir.minsalud.gov.co/terminologies-systems/rol-diagnostico",
+                "code": "2",
+                "display": "Diagnóstico principal de egreso"
+              }
+            ]
+          }
+        },
+        {
+          "condition": {
+            "reference": "#related-discharge-diagnosis-1"
+          },
+          "use": {
+            "coding": [
+              {
+                "system": "http://fhir.minsalud.gov.co/terminologies-systems/rol-diagnostico",
+                "code": "3",
+                "display": "Diagnóstico relacionado de egreso"
+              }
+            ]
+          },
+          "rank": 1
+        },
+        {
+          "condition": {
+            "reference": "#related-discharge-diagnosis-2"
+          },
+          "use": {
+            "coding": [
+              {
+                "system": "http://fhir.minsalud.gov.co/terminologies-systems/rol-diagnostico",
+                "code": "3",
+                "display": "Diagnóstico relacionado de egreso"
+              }
+            ]
+          },
+          "rank": 2
+        },
+        {
+          "condition": {
+            "reference": "#related-discharge-diagnosis-3"
+          },
+          "use": {
+            "coding": [
+              {
+                "system": "http://fhir.minsalud.gov.co/terminologies-systems/rol-diagnostico",
+                "code": "3",
+                "display": "Diagnóstico relacionado de egreso"
+              }
+            ]
+          },
+          "rank": 3
+        },
+        {
+          "condition": {
+            "reference": "#complication-diagnosis-1"
+          },
+          "use": {
+            "coding": [
+              {
+                "system": "http://fhir.minsalud.gov.co/terminologies-systems/rol-diagnostico",
+                "code": "4",
+                "display": "Diagnóstico de la complicación"
+              }
+            ]
+          }
+        }
+      ],
+      "hospitalization": {
+        "destination": {
+          "reference": "Organization/codHabPreSalud-1100199991"
+        },
+        "dischargeDisposition": {
+          "coding": [
+            {
+              "system": "http://fhir.minsalud.gov.co/terminologies-systems/condicion-usuario-salida",
+              "code": "1",
+              "display": "Paciente con destino a su domicilio"
+            }
+          ]
+        }
+      },
+      "location": [
+        {
+          "physicalType": {
+            "coding": [
+              {
+                "system": "http://fhir.minsalud.gov.co/terminologies-systems/entorno-atencion",
+                "code": "5",
+                "display": "Entorno Institucional"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "Condition",
+      "id": "main-admission-diagnosis",
+      "code": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/sid/icd-10",
+            "code": "R51",
+            "display": "CEFALEA"
+          }
+        ]
+      },
+      "subject": {
+        "reference": "Patient/17b87319-eefc-4a61-ad9f-6dc6ec6be16e"
+      },
+      "encounter": {
+        "reference": "#encounter"
+      },
+      "stage": [
+        {
+          "type": {
+            "coding": [
+              {
+                "system": "http://fhir.minsalud.gov.co/terminologies-systems/tipo-diagnostico",
+                "code": "1",
+                "display": "Impresión diagnóstica"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "Condition",
+      "id": "main-discharge-diagnosis",
+      "code": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/sid/icd-10",
+            "code": "G442",
+            "display": "CEFALEA DEBIDA A TENSION"
+          }
+        ]
+      },
+      "subject": {
+        "reference": "Patient/17b87319-eefc-4a61-ad9f-6dc6ec6be16e"
+      },
+      "stage": [
+        {
+          "type": {
+            "coding": [
+              {
+                "system": "http://fhir.minsalud.gov.co/terminologies-systems/tipo-diagnostico",
+                "code": "1",
+                "display": "Impresión diagnóstica"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "Condition",
+      "id": "related-discharge-diagnosis-1",
+      "code": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/sid/icd-10",
+            "code": "G440",
+            "display": "SINDROME DE CEFALEA EN RACIMOS"
+          }
+        ]
+      },
+      "subject": {
+        "reference": "Patient/17b87319-eefc-4a61-ad9f-6dc6ec6be16e"
+      }
+    },
+    {
+      "resourceType": "Condition",
+      "id": "related-discharge-diagnosis-2",
+      "code": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/sid/icd-10",
+            "code": "G448",
+            "display": "OTROS SINDROMES DE CEFALEA ESPECIFICADOS"
+          }
+        ]
+      },
+      "subject": {
+        "reference": "Patient/17b87319-eefc-4a61-ad9f-6dc6ec6be16e"
+      }
+    },
+    {
+      "resourceType": "Condition",
+      "id": "related-discharge-diagnosis-3",
+      "code": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/sid/icd-10",
+            "code": "Z566",
+            "display": "OTROS PROBLEMAS DE TENSION FISICA O MENTAL RELACIONADAS CON EL TRABAJO"
+          }
+        ]
+      },
+      "subject": {
+        "reference": "Patient/17b87319-eefc-4a61-ad9f-6dc6ec6be16e"
+      }
+    },
+    {
+      "resourceType": "Condition",
+      "id": "complication-diagnosis-1",
+      "code": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/sid/icd-10",
+            "code": "R457",
+            "display": "TENSION Y ESTADO DE CHOQUE EMOCIONAL, NO ESPECIFICADO"
+          }
+        ]
+      },
+      "subject": {
+        "reference": "Patient/17b87319-eefc-4a61-ad9f-6dc6ec6be16e"
+      }
+    },
+    {
+      "resourceType": "Medication",
+      "id": "medication-1",
+      "code": {
+        "coding": [
+          {
+            "system": "http://fhir.minsalud.gov.co/terminologies-systems/cum",
+            "code": "19908266.44",
+            "display": "ADVIL® TABLETAS RECUBIERTAS"
+          }
+        ]
+      },
+      "form": {
+        "coding": [
+          {
+            "system": "http://fhir.minsalud.gov.co/terminologies-systems/ich-m5-forma-farmaceutica",
+            "code": "TABLETA",
+            "display": "Tableta"
+          }
+        ]
+      },
+      "ingredient": [
+        {
+          "itemCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://www.whocc.no/atc",
+                "code": "M01AE01",
+                "display": "IBUPROFENO"
+              }
+            ]
+          },
+          "strength": {
+            "numerator": {
+              "value": 1,
+              "unit": "TABLETA"
+            },
+            "denominator": {
+              "value": 200,
+              "unit": "mg"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "Observation",
+      "id": "apparent-age",
+      "status": "final",
+      "code": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "102519007",
+            "display": "edad aparente"
+          }
+        ]
+      },
+      "valueQuantity": {
+        "value": 57,
+        "unit": "A"
+      }
+    },
+    {
+      "resourceType": "Observation",
+      "id": "ocupation-1",
+      "status": "final",
+      "code": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "14679004",
+            "display": "ocupación"
+          }
+        ]
+      },
+      "subject": {
+        "reference": "Patient/17b87319-eefc-4a61-ad9f-6dc6ec6be16e"
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://fhir.minsalud.gov.co/terminologies-systems/ciou",
+            "code": "1210",
+            "display": "Directores generales y gerentes generales de empresa"
+          }
+        ]
+      }
+    },
+    {
+      "resourceType": "Consent",
+      "id": "consent-1",
+      "status": "active",
+      "scope": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/consentscope",
+            "code": "adr",
+            "display": "Advanced Care Directive"
+          }
+        ]
+      },
+      "category": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/consentcategorycodes",
+              "code": "59284-0",
+              "display": "Patient Consent"
+            }
+          ]
+        }
+      ],
+      "patient": {
+        "reference": "Patient/17b87319-eefc-4a61-ad9f-6dc6ec6be16e"
+      },
+      "dateTime": "2015-03-18",
+      "provision": {
+        "type": "permit",
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "http://fhir.minsalud.gov.co/terminologies-systems/tipo-voluntad-anticipada",
+                "code": "1",
+                "display": "Donación"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "resourceType": "Condition",
+      "id": "disability-1",
+      "code": {
+        "coding": [
+          {
+            "system": "http://fhir.minsalud.gov.co/terminologies-systems/clasificación-discapacidad",
+            "code": "3",
+            "display": "Discapacidad visual"
+          }
+        ]
+      },
+      "subject": {
+        "reference": "Patient/17b87319-eefc-4a61-ad9f-6dc6ec6be16e"
+      }
+    },
+    {
+      "resourceType": "Observation",
+      "id": "triage",
+      "status": "final",
+      "code": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "225390008",
+            "display": "triaje"
+          }
+        ]
+      },
+      "encounter": {
+        "reference": "#encounter"
+      },
+      "effectiveDateTime": "2019-11-01T10:48:00.000-05:00",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://fhir.minsalud.gov.co/terminologies-systems/clasificacion-triage",
+            "code": "5",
+            "display": "Triage V"
+          }
+        ]
+      }
+    },
+    {
+      "resourceType": "MedicationRequest",
+      "id": "medication-request-1",
+      "status": "active",
+      "intent": "order",
+      "category": [
+        {
+          "coding": [
+            {
+              "system": "http://fhir.minsalud.gov.co/terminologies-systems/tipo-insumo",
+              "code": "Medicamento con uso con registro sanitario",
+              "display": "2"
+            }
+          ]
+        }
+      ],
+      "medicationReference": {
+        "reference": "#medication-1"
+      },
+      "subject": {
+        "reference": "Patient/17b87319-eefc-4a61-ad9f-6dc6ec6be16e"
+      },
+      "authoredOn": "2019-11-01T11:12:00.000-05:00",
+      "performer": {
+        "reference": "Practitioner/rethus-cc759836522H"
+      },
+      "reasonCode": [
+        {
+          "coding": [
+            {
+              "system": "http://fhir.minsalud.gov.co/terminologies-systems/finalidad-tecnologia-salud",
+              "code": "15",
+              "display": "Tratamiento"
+            }
+          ]
+        }
+      ],
+      "dosageInstruction": [
+        {
+          "route": {
+            "coding": [
+              {
+                "system": "http://fhir.minsalud.gov.co/terminologies-systems/ich-m5-via-admin",
+                "code": "ORAL",
+                "display": "Administración en o a través de la boca"
+              }
+            ]
+          },
+          "doseAndRate": [
+            {
+              "doseQuantity": {
+                "value": 1,
+                "unit": "TABLETA"
+              },
+              "rateQuantity": {
+                "value": 8,
+                "unit": "h"
+              }
+            }
+          ]
+        }
+      ],
+      "dispenseRequest": {
+        "quantity": {
+          "value": 9
+        },
+        "expectedSupplyDuration": {
+          "value": 3,
+          "unit": "d"
+        }
+      }
+    },
+    {
+      "resourceType": "Observation",
+      "id": "obx-1",
+      "status": "final",
+      "category": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+              "code": "laboratory",
+              "display": "Laboratory"
+            }
+          ]
+        }
+      ],
+      "code": {
+        "coding": [
+          {
+            "system": "http://fhir.minsalud.gov.co/terminologies-systems/cups",
+            "code": "90.3.4.26",
+            "display": "HEMOGLOBINA GLICOSILADA AUTOMATIZADA"
+          }
+        ]
+      },
+      "effectiveDateTime": "2019-11-01T11:02:14.097-05:00",
+      "valueQuantity": {
+        "value": 5.3,
+        "unit": "%"
+      }
+    },
+    {
+      "resourceType": "Condition",
+      "id": "death-diagnosis",
+      "code": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/sid/icd-10",
+            "code": "I461",
+            "display": "MUERTE SUBITA CARDIACA"
+          }
+        ]
+      },
+      "subject": {
+        "reference": "Patient/17b87319-eefc-4a61-ad9f-6dc6ec6be16e"
+      }
+    },
+    {
+      "resourceType": "ServiceRequest",
+      "id": "request-sick-leave",
+      "fhir_comments": [
+        " Licencia por incapacidad "
+      ],
+      "status": "active",
+      "intent": "order",
+      "code": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "224453000",
+            "display": "solicita licencia por enfermedad"
+          }
+        ]
+      },
+      "orderDetail": [
+        {
+          "fhir_comments": [
+            " 51: Identificador para determinar el tipo de incapacidad temporal si la hubo. "
+          ],
+          "coding": [
+            {
+              "system": "http://fhir.minsalud.gov.co/terminologies-systems/tipo-incapacidad-temporal",
+              "code": "1",
+              "display": "Nueva"
+            }
+          ]
+        }
+      ],
+      "subject": {
+        "reference": "Patient/17b87319-eefc-4a61-ad9f-6dc6ec6be16e"
+      },
+      "occurrenceTiming": {
+        "fhir_comments": [
+          " 52: Días de incapacidad "
+        ],
+        "repeat": {
+          "boundsDuration": {
+            "value": 3,
+            "unit": "d"
+          }
+        }
+      }
+    },
+    {
+      "resourceType": "ServiceRequest",
+      "id": "maternity-allowance",
+      "fhir_comments": [
+        " Licencia de maternidad "
+      ],
+      "status": "active",
+      "intent": "order",
+      "code": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "161011008",
+            "display": "licencia por maternidad"
+          }
+        ]
+      },
+      "subject": {
+        "reference": "Patient/17b87319-eefc-4a61-ad9f-6dc6ec6be16e"
+      },
+      "occurrenceTiming": {
+        "fhir_comments": [
+          " 53: Días de licencia de maternidad "
+        ],
+        "repeat": {
+          "boundsDuration": {
+            "value": 0,
+            "unit": "d"
+          }
+        }
+      }
+    },
+    {
+      "resourceType": "AllergyIntolerance",
+      "id": "allergy-1",
+      "code": {
+        "coding": [
+          {
+            "system": "http://fhir.minsalud.gov.co/terminologies-systems/tipo-alergia",
+            "code": "5",
+            "display": "Picadura de insectos"
+          }
+        ]
+      },
+      "patient": {
+        "reference": "Patient/17b87319-eefc-4a61-ad9f-6dc6ec6be16e"
+      },
+      "encounter": {
+        "reference": "#encounter"
+      },
+      "reaction": [
+        {
+          "substance": {
+            "text": "himenópteros"
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "FamilyMemberHistory",
+      "id": "family-history-1",
+      "status": "completed",
+      "patient": {
+        "reference": "Patient/17b87319-eefc-4a61-ad9f-6dc6ec6be16e"
+      },
+      "relationship": {
+        "coding": [
+          {
+            "system": "http://fhir.minsalud.gov.co/terminologies-systems/parentesco",
+            "code": "4",
+            "display": "Abuelos"
+          }
+        ]
+      },
+      "condition": [
+        {
+          "code": {
+            "coding": [
+              {
+                "system": "http://fhir.minsalud.gov.co/terminologies-systems/condicion-salud-familiar",
+                "code": "1",
+                "display": "Hipertensión arterial"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "Observation",
+      "id": "occupational-risk-1",
+      "status": "final",
+      "code": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "16090731000119102",
+            "display": "exposición ocupacional a factor de riesgo"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://fhir.minsalud.gov.co/terminologies-systems/tipo-factor-riesgo",
+            "code": "3",
+            "display": "Ergonómicos"
+          }
+        ]
+      },
+      "note": [
+        {
+          "text": "Silla de trabajo no ergonómica"
+        }
+      ]
+    }
+  ],
+  "status": "final",
+  "type": {
+    "coding": [
+      {
+        "system": "http://fhir.minsalud.gov.co/terminologies-systems/tipo-documento",
+        "code": "371531000",
+        "display": "Reporte de Encuentro de atención en salud"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/17b87319-eefc-4a61-ad9f-6dc6ec6be16e"
+  },
+  "encounter": {
+    "reference": "#encounter"
+  },
+  "date": "2019-11-01T11:15:03.000-05:00",
+  "author": [
+    {
+      "reference": "Practitioner/rethus-cc759836522H"
+    }
+  ],
+  "title": "REPORTE DE ENCUENTRO DE ATENCIÓN EN SALUD",
+  "section": [
+    {
+      "title": "VARIABLES DE IDENTIFICACIÓN DEL USUARIO",
+      "code": {
+        "coding": [
+          {
+            "system": "http://fhir.minsalud.gov.co/terminologies-systems/codigo-secciones-documentos",
+            "code": "371531000-A",
+            "display": "Variables de identificación del usuario"
+          }
+        ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n\n                <h3>VARIABLES DE IDENTIFICACIÓN DEL USUARIO</h3>\n                <table border=\"1\">\n                    <tbody>\n                        <tr>\n                            <td><strong>País de nacionalidad:</strong></td>\n                            <td>Colombia</td>\n                        </tr>\n                        <tr>\n                            <td><strong>Fecha de nacimiento:</strong></td>\n                            <td>1962/Ago/19</td>\n                        </tr>\n                        <tr>\n                            <td>Edad probable del usuario</td>\n                            <td>57 Años</td>\n                        </tr>\n                        <tr>\n                            <td><strong>Sexo:</strong></td>\n                            <td>Hombre</td>\n                        </tr>\n                        <tr>\n                            <td><strong>Género:</strong></td>\n                            <td>Masculino</td>\n                        </tr>\n                        <tr>\n                            <th colspan=\"2\">Ocupación del usuario en el momento de la atención</th>\n                        </tr>\n                        <tr>\n                            <th>Código</th>\n                            <th>Ocupación</th>\n                        </tr>\n                        <tr>\n                            <td>1210</td>\n                            <td>Directores generales y gerentes generales de empresa</td>\n                        </tr>\n                        <tr>\n                            <th colspan=\"2\">Voluntad anticipada del usuario</th>\n                        </tr>\n                        <tr>\n                            <th>Tipo</th>\n                            <th>Fecha</th>\n                        </tr>\n                        <tr>\n                            <td>Donación</td>\n                            <td>2015/Mar/18</td>\n                        </tr>\n                        <tr>\n                            <th colspan=\"2\">Categoría de discapacidad</th>\n                        </tr>\n                        <tr>\n                            <th>Código</th>\n                            <th>Categoría</th>\n                        </tr>\n                        <tr>\n                            <td>3</td>\n                            <td>Discapacidad visual</td>\n                        </tr>\n                        <tr>\n                            <td><strong>País de residencia habitual:</strong></td>\n                            <td>Colombia</td>\n                        </tr>\n                        <tr>\n                            <td><strong>Municipio de residencia habitual:</strong></td>\n                            <td>Bogotá D.C.</td>\n                        </tr>\n                        <tr>\n                            <td><strong>Etnia:</strong></td>\n                            <td>Ninguno de los anteriores</td>\n                        </tr>\n                        <tr>\n                            <td><strong>Comunidad étnica:</strong></td>\n                            <td>Kokonuco</td>\n                        </tr>\n                        <tr>\n                            <td><strong>Zona territorial donde reside el usuario:</strong></td>\n                            <td>Urbano</td>\n                        </tr>\n                        <tr>\n                            <th colspan=\"3\">Entidad que responde por el plan de beneficios</th>\n                        </tr>\n                        <tr>\n                            <th>Código</th>\n                            <th>Entidad</th>\n                        </tr>\n                        <tr>\n                            <td>EPS1000</td>\n                            <td>SALUD PERMANENTE</td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>"
+      },
+      "entry": [
+        {
+          "reference": "Patient/17b87319-eefc-4a61-ad9f-6dc6ec6be16e"
+        },
+        {
+          "reference": "#apparent-age"
+        },
+        {
+          "reference": "#ocupation-1"
+        },
+        {
+          "reference": "#consent-1"
+        },
+        {
+          "reference": "#disability-1"
+        },
+        {
+          "reference": "Organization/codAdminSalud-EPS1000"
+        }
+      ]
+    },
+    {
+      "title": "VARIABLES DE CONTACTO CON SERVICIOS DE SALUD",
+      "code": {
+        "coding": [
+          {
+            "system": "http://fhir.minsalud.gov.co/terminologies-systems/codigo-secciones-documentos",
+            "code": "371531000-B",
+            "display": "Variables de contacto con servicios de salud"
+          }
+        ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n                <h3>VARIABLES DE CONTACTO CON SERVICIOS DE SALUD</h3>\n                <table border=\"1\">\n                    <tbody>\n                        <tr>\n                            <td><strong>Fecha y hora de ingreso del usuario al servicio de salud:\n                                </strong></td>\n                            <td>2019/Nov/01 10:45:00</td>\n                        </tr>\n                        <tr>\n                            <th colspan=\"2\">Ámbito de atención en el que se realiza el\n                                procedimiento</th>\n                        </tr>\n                        <tr>\n                            <th>Código</th>\n                            <th>Nombre</th>\n                        </tr>\n                        <tr>\n                            <td>1</td>\n                            <td>Ambulatorio Intramural</td>\n                        </tr>\n                        <tr>\n                            <th colspan=\"2\">Entorno donde se realiza la atención</th>\n                        </tr>\n                        <tr>\n                            <th>Código</th>\n                            <th>Nombre</th>\n                        </tr>\n                        <tr>\n                            <td>5</td>\n                            <td>Entorno Institucional</td>\n                        </tr>\n                        <tr>\n                            <th colspan=\"2\">Vía de ingreso al servicio de salud</th>\n                        </tr>\n                        <tr>\n                            <th>Código</th>\n                            <th>Nombre</th>\n                        </tr>\n                        <tr>\n                            <td>2</td>\n                            <td>Directamente por el usuario a consulta externa</td>\n                        </tr>\n                        <tr>\n                            <th colspan=\"2\">Causa que motiva la atencion</th>\n                        </tr>\n                        <tr>\n                            <th>Código</th>\n                            <th>Nombre</th>\n                        </tr>\n                        <tr>\n                            <td>38</td>\n                            <td>Enfermedad general</td>\n                        </tr>\n                        <tr>\n                            <th colspan=\"2\">Triage</th>\n                        </tr>\n                        <tr>\n                            <th>Fecha y hora del triage</th>\n                            <th>Clasificación del Triage</th>\n                        </tr>\n                        <tr>\n                            <td>2019/Nov/01 10:48:00</td>\n                            <td>Triage V</td>\n                        </tr>\n                        <tr>\n                            <th colspan=\"2\">Diagnóstico principal de ingreso</th>\n                        </tr>\n                        <tr>\n                            <th>Código</th>\n                            <th>Nombre</th>\n                        </tr>\n                        <tr>\n                            <td>R51</td>\n                            <td>CEFALEA</td>\n                        </tr>\n                        <tr>\n                            <th colspan=\"2\">Tipo de diagnóstico principal de ingreso</th>\n                        </tr>\n                        <tr>\n                            <th>Código</th>\n                            <th>Nombre</th>\n                        </tr>\n                        <tr>\n                            <td>1</td>\n                            <td>Impresión diagnóstica</td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>"
+      },
+      "entry": [
+        {
+          "reference": "#encounter"
+        },
+        {
+          "reference": "#triage"
+        },
+        {
+          "reference": "#main-admission-diagnosis"
+        }
+      ]
+    },
+    {
+      "title": "VARIABLES DE TECNOLOGÍAS EN SALUD",
+      "code": {
+        "coding": [
+          {
+            "system": "http://fhir.minsalud.gov.co/terminologies-systems/codigo-secciones-documentos",
+            "code": "371531000-C",
+            "display": "Variables de tecnologías en salud"
+          }
+        ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n                <h3>VARIABLES DE TECNOLOGÍAS EN SALUD</h3>\n                <table border=\"1\">\n                    <tbody>\n                        <tr>\n                            <th colspan=\"2\">Tipo de tecnología en salud e insumo</th>\n                        </tr>\n                        <tr>\n                            <th>Código</th>\n                            <th>Nombre</th>\n                        </tr>\n                        <tr>\n                            <td>2</td>\n                            <td>Medicamento con uso con registro sanitario</td>\n                        </tr>\n                        <tr>\n                            <td><strong>Fecha de entrega o aplicación de la tecnología:\n                                </strong></td>\n                            <td>2019/Nov/01 11:12:00</td>\n                        </tr>\n                        <tr>\n                            <th colspan=\"2\">Identificación de la Tecnología de salud entregada o\n                                aplicada</th>\n                        </tr>\n                        <tr>\n                            <th>Código</th>\n                            <th>Nombre</th>\n                        </tr>\n                        <tr>\n                            <td>19908266.44</td>\n                            <td>ADVIL® TABLETAS RECUBIERTAS</td>\n                        </tr>\n                        <tr>\n                            <th colspan=\"2\">Finalidad de la tecnología de salud</th>\n                        </tr>\n                        <tr>\n                            <th>Código</th>\n                            <th>Nombre</th>\n                        </tr>\n                        <tr>\n                            <td>15</td>\n                            <td>Tratamiento</td>\n                        </tr>\n                        <tr>\n                            <th colspan=\"2\">Descripción común del medicamento</th>\n                        </tr>\n                        <tr>\n                            <td><strong>Forma farmacéutica: </strong></td>\n                            <td>Tableta</td>\n                        </tr>\n                        <tr>\n                            <td><strong>Concentración: </strong></td>\n                            <td>200</td>\n                        </tr>\n                        <tr>\n                            <td><strong>Unidad de medida de la tecnología en salud: </strong></td>\n                            <td>mg</td>\n                        </tr>\n                        <tr>\n                            <th colspan=\"2\">Dosis de administración de la tecnología</th>\n                        </tr>\n                        <tr>\n                            <th>Valor</th>\n                            <th>Unidades</th>\n                        </tr>\n                        <tr>\n                            <td>1</td>\n                            <td>Tableta</td>\n                        </tr>\n                        <tr>\n                            <td><strong>Vía de administración: </strong></td>\n                            <td>Oral</td>\n                        </tr>\n                        <tr>\n                            <th colspan=\"2\">Frecuencia de administración de la tecnología</th>\n                        </tr>\n                        <tr>\n                            <th>Valor</th>\n                            <th>Unidades</th>\n                        </tr>\n                        <tr>\n                            <td>8</td>\n                            <td>Horas</td>\n                        </tr>\n                        <tr>\n                            <td><strong>Número de días de tratamiento: </strong></td>\n                            <td>3</td>\n                        </tr>\n                        <tr>\n                            <td><strong>Número de unidades entregadas o aplicadas de la tecnología:\n                                </strong></td>\n                            <td>9</td>\n                        </tr>\n                        <tr>\n                            <th colspan=\"2\">Identificación del talento humano en salud que realiza,\n                                entrega o aplica la tecnología de salud</th>\n                        </tr>\n                        <tr>\n                            <th>Tipo documento</th>\n                            <th>Número documento</th>\n                        </tr>\n                        <tr>\n                            <td>CC</td>\n                            <td>759836522H</td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>"
+      },
+      "entry": [
+        {
+          "reference": "#medication-request-1"
+        },
+        {
+          "reference": "#medication-1"
+        },
+        {
+          "reference": "Practitioner/rethus-cc759836522H"
+        }
+      ]
+    },
+    {
+      "title": "VARIABLES DE RESULTADOS DE VALORACIÓN CLÍNICA Y DE LABORATORIO",
+      "code": {
+        "coding": [
+          {
+            "system": "http://fhir.minsalud.gov.co/terminologies-systems/codigo-secciones-documentos",
+            "code": "371531000-D",
+            "display": "Variables de resultados de valoración clínica y de laboratorio"
+          }
+        ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n                <h3>VARIABLES DE RESULTADOS DE VALORACIÓN CLÍNICA Y DE LABORATORIO</h3>\n                <table border=\"1\">\n                    <tbody>\n                        <tr>\n                            <th colspan=\"2\">Tipo de diagnóstico principal de egreso</th>\n                        </tr>\n                        <tr>\n                            <th>Código</th>\n                            <th>Nombre</th>\n                        </tr>\n                        <tr>\n                            <td>1</td>\n                            <td>Impresión diagnóstica</td>\n                        </tr>\n                        <tr>\n                            <th colspan=\"2\">Diagnóstico principal de egreso</th>\n                        </tr>\n                        <tr>\n                            <th>Código</th>\n                            <th>Nombre</th>\n                        </tr>\n                        <tr>\n                            <td>G442</td>\n                            <td>CEFALEA DEBIDA A TENSION</td>\n                        </tr>\n                        <tr>\n                            <th colspan=\"2\">Diagnóstico relacionado No 1 de egreso</th>\n                        </tr>\n                        <tr>\n                            <th>Código</th>\n                            <th>Nombre</th>\n                        </tr>\n                        <tr>\n                            <td>G440</td>\n                            <td>SINDROME DE CEFALEA EN RACIMOS</td>\n                        </tr>\n                        <tr>\n                            <th colspan=\"2\">Diagnóstico relacionado No 2 de egreso</th>\n                        </tr>\n                        <tr>\n                            <th>Código</th>\n                            <th>Nombre</th>\n                        </tr>\n                        <tr>\n                            <td>G448</td>\n                            <td>OTROS SINDROMES DE CEFALEA ESPECIFICADOS</td>\n                        </tr>\n                        <tr>\n                            <th colspan=\"2\">Diagnóstico relacionado No 3 de egreso</th>\n                        </tr>\n                        <tr>\n                            <th>Código</th>\n                            <th>Nombre</th>\n                        </tr>\n                        <tr>\n                            <td>Z566</td>\n                            <td>OTROS PROBLEMAS DE TENSION FISICA O MENTAL RELACIONADAS CON EL\n                                TRABAJO</td>\n                        </tr>\n                        <tr>\n                            <td><strong>Fecha del resultado de la valoración clínica o del resultado\n                                    de laboratorio: </strong></td>\n                            <td>2019/Nov/01 11:02:14</td>\n                        </tr>\n                        <tr>\n                            <th colspan=\"2\">Instrumento de evaluación de valoración clínica o del\n                                resultado en salud</th>\n                        </tr>\n                        <tr>\n                            <th>Código</th>\n                            <th>Nombre</th>\n                        </tr>\n                        <tr>\n                            <td>90.3.4.26</td>\n                            <td>HEMOGLOBINA GLICOSILADA AUTOMATIZADA</td>\n                        </tr>\n                        <tr>\n                            <td><strong>Resultado observado en parámetro: </strong></td>\n                            <td/>\n                        </tr>\n                        <tr>\n                            <th colspan=\"2\">Resultado observado en valor numérico</th>\n                        </tr>\n                        <tr>\n                            <th>Valor</th>\n                            <th>Unidades</th>\n                        </tr>\n                        <tr>\n                            <td>5.3</td>\n                            <td>%</td>\n                        </tr>\n                        <tr>\n                            <th colspan=\"2\">Diagnóstico de la complicación</th>\n                        </tr>\n                        <tr>\n                            <th>Código</th>\n                            <th>Nombre</th>\n                        </tr>\n                        <tr>\n                            <td>R457</td>\n                            <td>TENSION Y ESTADO DE CHOQUE EMOCIONAL, NO ESPECIFICADO</td>\n                        </tr>\n                        <tr>\n                            <th colspan=\"2\">Condición del usuario a la salida</th>\n                        </tr>\n                        <tr>\n                            <th>Código</th>\n                            <th>Nombre</th>\n                        </tr>\n                        <tr>\n                            <td>1</td>\n                            <td>Paciente con destino a su domicilio</td>\n                        </tr>\n                        <tr>\n                            <th colspan=\"2\">Diagnóstico de la muerte</th>\n                        </tr>\n                        <tr>\n                            <th>Código</th>\n                            <th>Nombre</th>\n                        </tr>\n                        <tr>\n                            <td>I461</td>\n                            <td>MUERTE SUBITA CARDIACA</td>\n                        </tr>\n                        <tr>\n                            <td><strong>Fecha y hora de la finalización de la atención:\n                                </strong></td>\n                            <td>2019/Nov/01 11:15:00</td>\n                        </tr>\n                        <tr>\n                            <td><strong>Código del prestador de servicios de salud a donde se\n                                    refiere: </strong></td>\n                            <td>1100199991</td>\n                        </tr>\n                        <tr>\n                            <td><strong>Tipo de incapacidad: </strong></td>\n                            <td>Nueva</td>\n                        </tr>\n                        <tr>\n                            <td><strong>Días de incapacidad: </strong></td>\n                            <td>3</td>\n                        </tr>\n                        <tr>\n                            <td><strong>Días de licencia de maternidad: </strong></td>\n                            <td>0</td>\n                        </tr>\n                        <tr>\n                            <th colspan=\"2\">Antecedente de alergias</th>\n                        </tr>\n                        <tr>\n                            <th>Tipo de alergia</th>\n                            <th>Alérgeno</th>\n                        </tr>\n                        <tr>\n                            <td>Picadura de insectos</td>\n                            <td>himenópteros</td>\n                        </tr>\n                        <tr>\n                            <th colspan=\"2\">Antecedente familiar</th>\n                        </tr>\n                        <tr>\n                            <th>Condición de salud</th>\n                            <th>Parentesco</th>\n                        </tr>\n                        <tr>\n                            <td>Hipertensión arterial</td>\n                            <td>Abuelos</td>\n                        </tr>\n                        <tr>\n                            <th colspan=\"2\">Exposición a factores de riesgo ocupacionales</th>\n                        </tr>\n                        <tr>\n                            <th>Tipo de factor de riesgo</th>\n                            <th>Nombre del factor de riesgo</th>\n                        </tr>\n                        <tr>\n                            <td>Ergonómicos</td>\n                            <td>Silla de trabajo no ergonómica</td>\n                        </tr>\n                        <tr>\n                            <th colspan=\"2\">Identificación del talento humano en salud que realizó\n                                el egreso</th>\n                        </tr>\n                        <tr>\n                            <th>Tipo documento</th>\n                            <th>Número documento</th>\n                        </tr>\n                        <tr>\n                            <td>CC</td>\n                            <td>759836522H</td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>"
+      },
+      "entry": [
+        {
+          "reference": "#encounter"
+        },
+        {
+          "reference": "#main-discharge-diagnosis"
+        },
+        {
+          "reference": "#related-discharge-diagnosis-1"
+        },
+        {
+          "reference": "#related-discharge-diagnosis-2"
+        },
+        {
+          "reference": "#related-discharge-diagnosis-3"
+        },
+        {
+          "reference": "#obx-1"
+        },
+        {
+          "reference": "#complication-diagnosis-1"
+        },
+        {
+          "reference": "#death-diagnosis"
+        },
+        {
+          "reference": "#request-sick-leave"
+        },
+        {
+          "reference": "#maternity-allowance"
+        },
+        {
+          "reference": "#allergy-1"
+        },
+        {
+          "reference": "#family-history-1"
+        },
+        {
+          "reference": "#occupational-risk-1"
+        },
+        {
+          "reference": "Practitioner/rethus-cc759836522H"
+        }
+      ]
+    }
+  ]
+}

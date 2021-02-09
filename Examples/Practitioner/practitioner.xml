@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+*****************************************************************************
+*   EJEMPLO DE RECURSO FHIR                                                 *
+*   Estándar: HL7 FHIR® R4                                                  *
+*   Recurso tipo: Practitioner                                              *
+*   Fecha: 2019-11-05                                                       *
+*   Organización:   HL7 Colombia                                            *
+*   Autor:  Mario Enrique Cortés <mario.cortes@hl7co.org>                   *
+*   Nota:   Este recurso tiene como finalidad servir de ejemplo para una    *
+*           prueba de concepto.                                             *
+*           No se recomienda el uso en producción de derivaciones de los    *
+*           ejemplos de recursos FHIR asociados a este ejercicio.           *
+*           Será necesario un análisis más detallado del escenario de       *
+*           interoperabilidad, prácticas, requisitos, regulaciones,         *
+*           factibilidad y elementos de dato, necesarios para definir un    *
+*           perfil que adapte los recursos FHIR al caso particular.         *
+*****************************************************************************
+-->
+<!-- ***** RECURSO DE INFORMACIÓN DEL PROFESIONAL DE SALUD ***** -->
+<Practitioner xmlns="http://hl7.org/fhir">
+    <id value="rethus-cc759836522H"/>
+    <text>
+        <status value="generated"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <h2>Javier Cruz Fonseca</h2>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th colspan="2">DATOS DE IDENTIFICACIÓN</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Documento de identificación:</strong></td>
+                        <td>CC 759836522H</td>
+                    </tr>
+                </tbody>
+            </table>
+            <hr />
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th colspan="3">REGISTRO MÉDICO</th>
+                    </tr>
+                    <tr>
+                        <th>Profesion/Especialidad</th>
+                        <th>Tarjeta Profesional</th>
+                        <th>Fecha</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Médico general</strong></td>
+                        <td>TP-34794</td>
+                        <td>1990-09-18</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Especialista en medicina interna</strong></td>
+                        <td>TP-34794</td>
+                        <td>1996-03-14</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </text>
+    <identifier>
+        <use value="official"/>
+        <type>
+            <coding>
+                <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+                <code value="CC"/>
+                <display value="Cédula de Ciudadanía"/>
+            </coding>
+        </type>
+        <system value="https://registraduria.gov.co/-Identificacion"/>
+        <value value="759836522H"/>
+    </identifier>
+    <active value="true"/>
+    <name>
+        <use value="official"/>
+        <family value="Cruz Fonseca">
+            <extension id="humanname-fathers-family" url="http://hl7.org/fhir/StructureDefinition/humanname-fathers-family">
+                <valueString value="Cruz" />
+            </extension>
+            <extension id="humanname-mothers-family" url="http://hl7.org/fhir/StructureDefinition/humanname-mothers-family">
+                <valueString value="Fonseca" />
+            </extension>
+        </family>
+        <given value="Javier"/>
+    </name>
+    <qualification>
+        <identifier>
+            <use value="official"/>
+            <system value="https://fhir.minsalud.gov.co/rethus"/>
+            <value value="TP-34794"/>
+        </identifier>
+        <code>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="59058001"/>
+                <display value="médico general"/>
+            </coding>
+        </code>
+        <period>
+            <start value="1990-09-18"/>
+        </period>
+    </qualification>
+    <qualification>
+        <identifier>
+            <use value="official"/>
+            <system value="https://fhir.minsalud.gov.co/rethus"/>
+            <value value="TP-34794"/>
+        </identifier>
+        <code>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="39677007"/>
+                <display value="especialista en medicina interna"/>
+            </coding>
+        </code>
+        <period>
+            <start value="1996-03-14"/>
+        </period>
+    </qualification>
+</Practitioner>

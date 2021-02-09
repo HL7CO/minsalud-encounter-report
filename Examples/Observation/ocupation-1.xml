@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+*****************************************************************************
+*   EJEMPLO DE RECURSO FHIR                                                 *
+*   Estándar: HL7 FHIR® R4                                                  *
+*   Recurso tipo: Observation                                               *
+*   Fecha: 2019-11-05                                                       *
+*   Organización:   HL7 Colombia                                            *
+*   Autor:  Mario Enrique Cortés <mario.cortes@hl7co.org>                   *
+*   Nota:   Este recurso tiene como finalidad servir de ejemplo para una    *
+*           prueba de concepto.                                             *
+*           No se recomienda el uso en producción de derivaciones de los    *
+*           ejemplos de recursos FHIR asociados a este ejercicio.           *
+*           Será necesario un análisis más detallado del escenario de       *
+*           interoperabilidad, prácticas, requisitos, regulaciones,         *
+*           factibilidad y elementos de dato, necesarios para definir un    *
+*           perfil que adapte los recursos FHIR al caso particular.         *
+*****************************************************************************
+-->
+<!-- 8: Ocupación del usuario en el momento de la atención (encuentro) -->
+<Observation xmlns="http://hl7.org/fhir">
+    <id value="ocupation-1"/>
+    <text>
+        <status value="generated"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <h4>Paciente: Jorge Carlos Restrepo Rodríguez</h4>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th colspan="2">Ocupación del usuario en el momento de la atención</th>
+                    </tr>
+                    <tr>
+                        <th>Código</th>
+                        <th>Ocupación</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1210</td>
+                        <td>Directores generales y gerentes generales de empresa</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </text>
+    <status value="final"/>
+    <code>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="14679004"/>
+            <display value="ocupación"/>
+        </coding>
+    </code>
+    <subject>
+        <reference value="Patient/17b87319-eefc-4a61-ad9f-6dc6ec6be16e"/>
+    </subject>
+    <valueCodeableConcept>
+        <coding>
+            <system value="http://fhir.minsalud.gov.co/terminologies-systems/ciou"/>
+            <!-- 8.1: Código de la ocupación -->
+            <code value="1210"/>
+            <!-- 8.2: Nombre de la ocupación -->
+            <display value="Directores generales y gerentes generales de empresa"/>
+        </coding>
+    </valueCodeableConcept>
+</Observation>

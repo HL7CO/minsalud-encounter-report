@@ -1,0 +1,27 @@
+{
+    "resourceType": "Condition",
+    "id": "main-discharge-diagnosis",
+    "code": {
+        "coding": [
+            {
+                "system": "http://hl7.org/fhir/sid/icd-10",
+                "code": "G442",
+                "display": "CEFALEA DEBIDA A TENSION"
+            }
+        ]
+    },
+    "subject": {"reference": "Patient/17b87319-eefc-4a61-ad9f-6dc6ec6be16e"},
+    "stage": [
+        {
+            "type": {
+                "coding": [
+                    {
+                        "system": "http://fhir.minsalud.gov.co/terminologies-systems/tipo-diagnostico",
+                        "code": "1",
+                        "display": "Impresión diagnóstica"
+                    }
+                ]
+            }
+        }
+    ]
+}

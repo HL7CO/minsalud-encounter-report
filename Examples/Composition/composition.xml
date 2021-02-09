@@ -1,0 +1,1487 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+*****************************************************************************
+*   EJEMPLO DE RECURSO FHIR                                                 *
+*   Estándar: HL7 FHIR® R4                                                  *
+*   Recurso tipo: Composition                                               *
+*   Fecha: 2019-11-05                                                       *
+*   Organización:   HL7 Colombia                                            *
+*   Autor:  Mario Enrique Cortés <mario.cortes@hl7co.org>                   *
+*   Nota:   Este recurso tiene como finalidad servir de ejemplo para una    *
+*           prueba de concepto.                                             *
+*           No se recomienda el uso en producción de derivaciones de los    *
+*           ejemplos de recursos FHIR asociados a este ejercicio.           *
+*           Será necesario un análisis más detallado del escenario de       *
+*           interoperabilidad, prácticas, requisitos, regulaciones,         *
+*           factibilidad y elementos de dato, necesarios para definir un    *
+*           perfil que adapte los recursos FHIR al caso particular.         *
+*****************************************************************************
+-->
+<Composition xmlns="http://hl7.org/fhir">
+    <!-- HL7 FHIR: Identificación unívoca del recurso Composition -->
+    <id value="8371c461-c9fa-4462-8452-9ce2f6ddd022"/>
+    <text>
+        <status></status>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <h1>REPORTE DE ENCUENTRO DE ATENCIÓN EN SALUD</h1>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th colspan="2">Metadatos del documento</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>ID: </strong></td>
+                        <td>8371c461-c9fa-4462-8452-9ce2f6ddd022</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Paciente: </strong></td>
+                        <td>Jorge Carlos Restrepo Rodríguez</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Documento de identificación: </strong></td>
+                        <td>CC 1029384756K</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Fecha y hora de generación del documento: </strong></td>
+                        <td>2019/Nov/01 11:15:03</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Autor: </strong></td>
+                        <td>Javier Cruz Fonseca</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </text>
+    <contained>
+        <!-- 5: Edad probable del usuario (En el momento de la prestación del servicio, cuando no se conoce o no se cuenta con la fecha de nacimiento) -->
+        <Observation xmlns="http://hl7.org/fhir">
+            <id value="apparent-age"/>
+            <status value="final"/>
+            <code>
+                <coding>
+                    <system value="http://snomed.info/sct"/>
+                    <code value="102519007"/>
+                    <display value="edad aparente"/>
+                </coding>
+            </code>
+            <valueQuantity>
+                <!-- 5.2: Valor de la edad -->
+                <value value="57"/>
+                <!-- 5.1: Unidad de medida de la edad -->
+                <unit value="A"/>
+            </valueQuantity>
+        </Observation>
+    </contained>
+    <contained>
+        <!-- 8: Ocupación del usuario en el momento de la atención (encuentro) -->
+        <Observation xmlns="http://hl7.org/fhir">
+            <id value="ocupation-1"/>
+            <status value="final"/>
+            <code>
+                <coding>
+                    <system value="http://snomed.info/sct"/>
+                    <code value="14679004"/>
+                    <display value="ocupación"/>
+                </coding>
+            </code>
+            <subject>
+                <reference value="Patient/17b87319-eefc-4a61-ad9f-6dc6ec6be16e"/>
+            </subject>
+            <valueCodeableConcept>
+                <coding>
+                    <system value="http://fhir.minsalud.gov.co/terminologies-systems/ciou"/>
+                    <!-- 8.1: Código de la ocupación -->
+                    <code value="1210"/>
+                    <!-- 8.2: Nombre de la ocupación -->
+                    <display value="Directores generales y gerentes generales de empresa"/>
+                </coding>
+            </valueCodeableConcept>
+        </Observation>
+    </contained>
+    <contained>
+        <!-- 9: Voluntad anticipada del usuario -->
+        <Consent xmlns="http://hl7.org/fhir"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://hl7.org/fhir http://localhost:8888/hl7/fhir/r4/fhir-all-xsd/Consent.xsd">
+            <id value="consent-1"/>
+            <status value="active"/>
+            <scope>
+                <coding>
+                    <system value="http://terminology.hl7.org/CodeSystem/consentscope"/>
+                    <code value="adr"/>
+                    <display value="Advanced Care Directive"/>
+                </coding>
+            </scope>
+            <category>
+                <coding>
+                    <system value="http://terminology.hl7.org/CodeSystem/consentcategorycodes"/>
+                    <code value="59284-0"/>
+                    <display value="Patient Consent"/>
+                </coding>
+            </category>
+            <patient>
+                <reference value="Patient/17b87319-eefc-4a61-ad9f-6dc6ec6be16e"/>
+            </patient>
+            <!-- 9.1: Fecha y hora de suscripción del documento de voluntad anticipada -->
+            <dateTime value="2015-03-18"/>
+            <!-- 9.2: Tipo de voluntad anticipada -->
+            <provision>
+                <type value="permit"/>
+                <code>
+                    <coding>
+                        <system value="http://fhir.minsalud.gov.co/terminologies-systems/tipo-voluntad-anticipada"/>
+                        <code value="1"/>
+                        <display value="Donación"/>
+                    </coding>
+                </code>
+            </provision>
+        </Consent>
+    </contained>
+    <contained>
+        <!-- 10: Categoría de discapacidad -->
+        <Condition xmlns="http://hl7.org/fhir">
+            <id value="disability-1"/>
+            <!-- 10.1: Código de categorización de discapacidad  -->
+            <code>
+                <coding>
+                    <system value="http://fhir.minsalud.gov.co/terminologies-systems/clasificación-discapacidad"/>
+                    <code value="3"/>
+                    <display value="Discapacidad visual"/>
+                </coding>
+            </code>
+            <subject>
+                <reference value="Patient/17b87319-eefc-4a61-ad9f-6dc6ec6be16e"/>
+            </subject>
+        </Condition>
+    </contained>
+    <contained>
+        <Encounter xmlns="http://hl7.org/fhir">
+            <id value="encounter"/>
+            <!-- 20: Vía de ingreso al servicio de salud -->
+            <extension id="admit-source" url="http://hl7.org/fhir/StructureDefinition/admit-source">
+                <valueCodeableConcept>
+                    <coding>
+                        <system value="http://fhir.minsalud.gov.co/terminologies-systems/via-ingreso"/>
+                        <code value="2"/>
+                        <display value="Directamente por el usuario a consulta externa"/>
+                    </coding>
+                </valueCodeableConcept>
+            </extension>
+            <status value="finished"/>
+            <!-- 17: Fecha y hora de ingreso del usuario al sericio de salud -->
+            <statusHistory>
+                <status value="in-progress"/>
+                <period>
+                    <start value="2019-11-01T10:45:00.000-05:00"/>
+                </period>
+            </statusHistory>
+            <!-- 49: Fecha y hora de finalización de la atención -->
+            <statusHistory>
+                <status value="finished"/>
+                <period>
+                    <start value="2019-11-01T11:15:00.000-05:00"/>
+                </period>
+            </statusHistory>
+            <class>
+                <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
+                <code value="AMB"/>
+                <display value="ambulatory"/>
+            </class>
+            <!-- 18: Identificador para determinar el ámbito de atención en el que se realiza el procedimiento de salud al usuario -->
+            <type>
+                <coding>
+                    <system value="http://fhir.minsalud.gov.co/terminologies-systems/ambito-atencion"/>
+                    <code value="1"/>
+                    <display value="Ambulatorio Intramural"/>
+                </coding>
+            </type>
+            <subject>
+                <reference value="Patient/17b87319-eefc-4a61-ad9f-6dc6ec6be16e"/>
+            </subject>
+            <!-- 57: Identificación del talento humano en salud que realizó el egreso -->
+            <participant>
+                <type>
+                    <coding>
+                        <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
+                        <code value="DIS"/>
+                        <display value="discharger"/>
+                    </coding>
+                </type>
+                <individual>
+                    <reference value="Practitioner/rethus-cc759836522H"/>
+                </individual>
+            </participant> 
+            <!-- 21: Causa que motiva la atencion -->
+            <reasonCode>
+                <coding>
+                    <system value="http://fhir.minsalud.gov.co/terminologies-systems/motivo-atencion"/>
+                    <code value="38"/>
+                    <display value="Enfermedad general"/>
+                </coding>
+            </reasonCode>
+            <!-- 24: Diagnóstico principal de ingreso -->
+            <diagnosis>
+                <condition>
+                    <reference value="#main-admission-diagnosis"/>
+                </condition>
+                <use>
+                    <coding>
+                        <system value="http://fhir.minsalud.gov.co/terminologies-systems/rol-diagnostico"/>
+                        <code value="1"/>
+                        <display value="Diagnóstico principal de ingreso"/>
+                    </coding>
+                </use>
+            </diagnosis>
+            <!-- 38: Diagnóstico principal de egreso -->
+            <diagnosis>
+                <condition>
+                    <reference value="#main-discharge-diagnosis"/>
+                </condition>
+                <use>
+                    <coding>
+                        <system value="http://fhir.minsalud.gov.co/terminologies-systems/rol-diagnostico"/>
+                        <code value="2"/>
+                        <display value="Diagnóstico principal de egreso"/>
+                    </coding>
+                </use>
+            </diagnosis>
+            <!-- 39: Diagnóstico relacionado No 1 de egreso -->
+            <diagnosis>
+                <condition>
+                    <reference value="#related-discharge-diagnosis-1"/>
+                </condition>
+                <use>
+                    <coding>
+                        <system value="http://fhir.minsalud.gov.co/terminologies-systems/rol-diagnostico"/>
+                        <code value="3"/>
+                        <display value="Diagnóstico relacionado de egreso"/>
+                    </coding>
+                </use>
+                <!-- 39.a: entero que indica que se trata del 1er diagnóstico relacionado de egreso -->
+                <rank value="1"/>
+            </diagnosis>
+            <!-- 40: Diagnóstico relacionado No 2 de egreso -->
+            <diagnosis>
+                <condition>
+                    <reference value="#related-discharge-diagnosis-2"/>
+                </condition>
+                <use>
+                    <coding>
+                        <system value="http://fhir.minsalud.gov.co/terminologies-systems/rol-diagnostico"/>
+                        <code value="3"/>
+                        <display value="Diagnóstico relacionado de egreso"/>
+                    </coding>
+                </use>
+                <!-- 40.a: entero que indica que se trata del 2o diagnóstico relacionado de egreso -->
+                <rank value="2"/>
+            </diagnosis>
+            <!-- 41: Diagnóstico relacionado No 3 de egreso -->
+            <diagnosis>
+                <condition>
+                    <reference value="#related-discharge-diagnosis-3"/>
+                </condition>
+                <use>
+                    <coding>
+                        <system value="http://fhir.minsalud.gov.co/terminologies-systems/rol-diagnostico"/>
+                        <code value="3"/>
+                        <display value="Diagnóstico relacionado de egreso"/>
+                    </coding>
+                </use>
+                <!-- 41.a: entero que indica que se trata del 3er diagnóstico relacionado de egreso -->
+                <rank value="3"/>
+            </diagnosis>
+            <!-- 46: Diagnóstico de la complicación -->
+            <diagnosis>
+                <condition>
+                    <reference value="#complication-diagnosis-1"/>
+                </condition>
+                <use>
+                    <coding>
+                        <system value="http://fhir.minsalud.gov.co/terminologies-systems/rol-diagnostico"/>
+                        <code value="4"/>
+                        <display value="Diagnóstico de la complicación"/>
+                    </coding>
+                </use>
+            </diagnosis>
+            <!-- 48: Diagnóstico de la muerte (ejemplo de sintaxis) -->
+            <!-- <diagnosis>
+        <condition>
+            <reference value="#death-diagnosis"/>
+        </condition>
+        <use>
+            <coding>
+                <system value="http://fhir.minsalud.gov.co/terminologies-systems/rol-diagnostico"/>
+                <code value="5"/>
+                <display value="Diagnóstico de muerte"/>
+            </coding>
+        </use>
+    </diagnosis> -->
+            <hospitalization>
+                <!-- 50: Código del prestador de servicios de salud a donde se refiere (referencia) -->
+                <destination>
+                    <reference value="Organization/codHabPreSalud-1100199991"/>
+                </destination>
+                <!-- 47: Condición del usuario a la salida -->
+                <dischargeDisposition>
+                    <coding>
+                        <system value="http://fhir.minsalud.gov.co/terminologies-systems/condicion-usuario-salida"/>
+                        <code value="1"/>
+                        <display value="Paciente con destino a su domicilio"/>
+                    </coding>
+                </dischargeDisposition>
+            </hospitalization>
+            <!-- 19: Entorno donde se realiza la atención -->
+            <location>
+                <location/>
+                <physicalType>
+                    <coding>
+                        <system value="http://fhir.minsalud.gov.co/terminologies-systems/entorno-atencion"/>
+                        <code value="5"/>
+                        <display value="Entorno Institucional"/>
+                    </coding>
+                </physicalType>
+            </location>
+        </Encounter>
+    </contained>
+    <contained>
+        <!-- Triage -->
+        <Observation xmlns="http://hl7.org/fhir">
+            <id value="triage"/>
+            <status value="final"/>
+            <code>
+                <coding>
+                    <system value="http://snomed.info/sct"/>
+                    <code value="225390008"/>
+                    <display value="triaje"/>
+                </coding>
+            </code>
+            <encounter>
+                <reference value="#encounter"/>
+            </encounter>
+            <!-- 22: Fecha y hora del triage -->
+            <effectiveDateTime value="2019-11-01T10:48:00.000-05:00"/>
+            <!-- 23: Clasificación del Triage -->
+            <valueCodeableConcept>
+                <coding>
+                    <system value="http://fhir.minsalud.gov.co/terminologies-systems/clasificacion-triage"/>
+                    <code value="5"/>
+                    <display value="Triage V"/>
+                </coding>
+            </valueCodeableConcept>
+        </Observation>
+    </contained>
+    <contained>
+        <!-- 24: Diagnóstico principal de ingreso -->
+        <Condition xmlns="http://hl7.org/fhir">
+            <id value="main-admission-diagnosis"/>
+            <code>
+                <coding>
+                    <system value="http://hl7.org/fhir/sid/icd-10"/>
+                    <!-- 24.1: Código del diagnóstico principal -->
+                    <code value="R51"/>
+                    <!-- 24.2: Nombre del diagnóstico principal -->
+                    <display value="CEFALEA"/>
+                </coding>
+            </code>
+            <subject>
+                <reference value="Patient/17b87319-eefc-4a61-ad9f-6dc6ec6be16e"/>
+            </subject>
+            <encounter>
+                <reference value="#encounter"/>
+            </encounter>
+            <!-- 25: Tipo de diagnóstico principal de ingreso -->
+            <stage>
+                <type>
+                    <coding>
+                        <system value="http://fhir.minsalud.gov.co/terminologies-systems/tipo-diagnostico"/>
+                        <code value="1"/>
+                        <display value="Impresión diagnóstica"/>
+                    </coding>
+                </type>
+            </stage>
+        </Condition>
+    </contained>
+    <contained>
+        <MedicationRequest xmlns="http://hl7.org/fhir">
+            <id value="medication-request-1"/>
+            <status value="active"/>
+            <intent value="order"/>
+            <!-- 26: Tipo de tecnología en salud e insumo -->
+            <category>
+                <coding>
+                    <system value="http://fhir.minsalud.gov.co/terminologies-systems/tipo-insumo"/>
+                    <code value="Medicamento con uso con registro sanitario"/>
+                    <display value="2"/>
+                </coding>
+            </category>
+            <!-- 28: Identificación de la Tecnología de salud entregada o aplicada (referencia) -->
+            <medicationReference>
+                <reference value="#medication-1"/>
+            </medicationReference>
+            <subject>
+                <reference value="Patient/17b87319-eefc-4a61-ad9f-6dc6ec6be16e"/>
+            </subject>
+            <!-- 27: Fecha de entrega o aplicación de la tecnología en salud -->
+            <authoredOn value="2019-11-01T11:12:00.000-05:00"/>
+            <!-- 36: identificación del talento humano en salud que realiza, entrega o aplica la tecnología de salud -->
+            <performer>
+                <reference value="Practitioner/rethus-cc759836522H"/>
+            </performer>
+            <!-- 29: Finalidad de la tecnología de salud -->
+            <reasonCode>
+                <coding>
+                    <system value="http://fhir.minsalud.gov.co/terminologies-systems/finalidad-tecnologia-salud"/>
+                    <code value="15"/>
+                    <display value="Tratamiento"/>
+                </coding>
+            </reasonCode>
+            <dosageInstruction>
+                <!-- 32: Vía de administración -->
+                <route>
+                    <coding>
+                        <system value="http://fhir.minsalud.gov.co/terminologies-systems/ich-m5-via-admin"/>
+                        <code value="ORAL"/>
+                        <display value="Administración en o a través de la boca"/>
+                    </coding>
+                </route>
+                <doseAndRate>
+                    <!-- 31: Dosis de administración de la tecnología -->
+                    <doseQuantity>
+                        <value value="1"/>
+                        <unit value="TABLETA"/>
+                    </doseQuantity>
+                    <!-- 33: Frecuencia de administración de la tecnología -->
+                    <rateQuantity>
+                        <value value="8"/>
+                        <unit value="h"/>
+                    </rateQuantity>
+                </doseAndRate>
+            </dosageInstruction>
+            <dispenseRequest>
+                <!-- 35: Número de unidades entregadas o aplicadas de la tecnología -->
+                <quantity>
+                    <value value="9"/>
+                </quantity>
+                <!-- 34: Número de días de tratamiento -->
+                <expectedSupplyDuration>
+                    <value value="3"/>
+                    <unit value="d"/>
+                </expectedSupplyDuration>
+            </dispenseRequest>
+        </MedicationRequest>
+    </contained>
+    <contained>
+        <Medication xmlns="http://hl7.org/fhir">
+            <id value="medication-1"/>
+            <!-- 28: Identificación de la Tecnología de salud entregada o aplicada (medicamentos) -->
+            <code>
+                <coding>
+                    <system value="http://fhir.minsalud.gov.co/terminologies-systems/cum"/>
+                    <code value="19908266.44"/>
+                    <display value="ADVIL® TABLETAS RECUBIERTAS"/>
+                </coding>
+            </code>
+            <!-- 30.1: Forma farmacéutica -->
+            <form>
+                <coding>
+                    <system value="http://fhir.minsalud.gov.co/terminologies-systems/ich-m5-forma-farmaceutica"/>
+                    <code value="TABLETA"/>
+                    <display value="Tableta"/>
+                </coding>
+            </form>
+            <ingredient>
+                <itemCodeableConcept>
+                    <coding>
+                        <system value="http://www.whocc.no/atc"/>
+                        <code value="M01AE01"/>
+                        <display value="IBUPROFENO"/>
+                    </coding>
+                </itemCodeableConcept>
+                <strength>
+                    <numerator>
+                        <value value="1"/>
+                        <unit value="TABLETA"/>
+                    </numerator>
+                    <!-- 30.2 y 30.3: Concentración y Unidad de medida de la tecnología en salud -->
+                    <denominator>
+                        <value value="200"/>
+                        <unit value="mg"/>
+                    </denominator>
+                </strength>
+            </ingredient>
+        </Medication>
+    </contained>
+    <contained>
+        <!-- 38: Diagnóstico principal de egreso -->
+        <Condition xmlns="http://hl7.org/fhir">
+            <id value="main-discharge-diagnosis"/>
+            <code>
+                <coding>
+                    <system value="http://hl7.org/fhir/sid/icd-10"/>
+                    <!-- 38.1: Código del diagnóstico de egreso -->
+                    <code value="G442"/>
+                    <!-- 38.2: Nombre del diagnóstico de egreso -->
+                    <display value="CEFALEA DEBIDA A TENSION"/>
+                </coding>
+            </code>
+            <subject>
+                <reference value="Patient/17b87319-eefc-4a61-ad9f-6dc6ec6be16e"/>
+            </subject>
+            <!-- 37: Tipo de diagnóstico principal de egreso -->
+            <stage>
+                <type>
+                    <coding>
+                        <system value="http://fhir.minsalud.gov.co/terminologies-systems/tipo-diagnostico"/>
+                        <code value="1"/>
+                        <display value="Impresión diagnóstica"/>
+                    </coding>
+                </type>
+            </stage>
+        </Condition>
+    </contained>
+    <contained>
+        <!-- 39: Diagnóstico relacionado No 1 de egreso -->
+        <Condition xmlns="http://hl7.org/fhir">
+            <id value="related-discharge-diagnosis-1"/>
+            <code>
+                <coding>
+                    <system value="http://hl7.org/fhir/sid/icd-10"/>
+                    <!-- 39.1: Código del diagnóstico relacionado 1 -->
+                    <code value="G440"/>
+                    <!-- 39.2: Nombre del diagnóstico relacionado 1 -->
+                    <display value="SINDROME DE CEFALEA EN RACIMOS"/>
+                </coding>
+            </code>
+            <subject>
+                <reference value="Patient/17b87319-eefc-4a61-ad9f-6dc6ec6be16e"/>
+            </subject>
+        </Condition>
+    </contained>
+    <contained>
+        <!-- 40: Diagnóstico relacionado No 2 de egreso -->
+        <Condition xmlns="http://hl7.org/fhir">
+            <id value="related-discharge-diagnosis-2"/>
+            <code>
+                <coding>
+                    <system value="http://hl7.org/fhir/sid/icd-10"/>
+                    <!-- 40.1: Código del diagnóstico relacionado 2 -->
+                    <code value="G448"/>
+                    <!-- 40.2: Nombre del diagnóstico relacionado 2 -->
+                    <display value="OTROS SINDROMES DE CEFALEA ESPECIFICADOS"/>
+                </coding>
+            </code>
+            <subject>
+                <reference value="Patient/17b87319-eefc-4a61-ad9f-6dc6ec6be16e"/>
+            </subject>
+        </Condition>
+    </contained>
+    <contained>
+        <!-- 41: Diagnóstico relacionado No 3 de egreso -->
+        <Condition xmlns="http://hl7.org/fhir">
+            <id value="related-discharge-diagnosis-3"/>
+            <code>
+                <coding>
+                    <system value="http://hl7.org/fhir/sid/icd-10"/>
+                    <!-- 41.1: Código del diagnóstico relacionado 3 -->
+                    <code value="Z566"/>
+                    <!-- 42.2: Nombre del diagnóstico relacionado 3 -->
+                    <display value="OTROS PROBLEMAS DE TENSION FISICA O MENTAL RELACIONADAS CON EL TRABAJO"/>
+                </coding>
+            </code>
+            <subject>
+                <reference value="Patient/17b87319-eefc-4a61-ad9f-6dc6ec6be16e"/>
+            </subject>
+        </Condition>
+    </contained>
+    <contained>
+        <!-- Valoración clínica o resultado de laboratorio -->
+        <Observation xmlns="http://hl7.org/fhir">
+            <id value="obx-1"/>
+            <status value="final"/>
+            <!-- FHIR: Código de clasificación de la categoría de observación (laboratorio, signos vitales, imagenología, examen físico, etc) -->
+            <category>
+                <coding>
+                    <system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
+                    <code value="laboratory"/>
+                    <display value="Laboratory"/>
+                </coding>
+            </category>
+            <!-- 43: Instrumento de evaluación de valoración clínica o del resultado en salud. -->
+            <code>
+                <coding>
+                    <system value="http://fhir.minsalud.gov.co/terminologies-systems/cups"/>
+                    <code value="90.3.4.26"/>
+                    <display value="HEMOGLOBINA GLICOSILADA AUTOMATIZADA"/>
+                </coding>
+            </code>
+            <!-- 42: Fecha del resultado de la valoración clínica o del resultado de laboratorio. -->
+            <effectiveDateTime value="2019-11-01T11:02:14.097-05:00"/>
+            <!-- 44: Resultado observado en parámetro (ejemplo de sintaxis) 
+    (reactivo | no reactivo | activo | inactivo | benigno | maligno | alto | bajo | ...) -->
+            <!-- <valueCodeableConcept>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="11214006"/>
+            <display value="reactivo"/>
+        </coding>
+    </valueCodeableConcept> -->
+            <!-- 45: Resultado observado en valor numérico -->
+            <valueQuantity>
+                <value value="5.3"/>
+                <unit value="%"/>
+            </valueQuantity>
+        </Observation>
+    </contained>
+    <contained>
+        <!-- 46: Diagnóstico de la complicación -->
+        <Condition xmlns="http://hl7.org/fhir">
+            <id value="complication-diagnosis-1"/>
+            <code>
+                <coding>
+                    <system value="http://hl7.org/fhir/sid/icd-10"/>
+                    <!-- 46.1: Código de la complicación -->
+                    <code value="R457"/>
+                    <!-- 46.2: Nombre del diagnóstico de la complicación -->
+                    <display value="TENSION Y ESTADO DE CHOQUE EMOCIONAL, NO ESPECIFICADO"/>
+                </coding>
+            </code>
+            <subject>
+                <reference value="Patient/17b87319-eefc-4a61-ad9f-6dc6ec6be16e"/>
+            </subject>
+        </Condition>
+    </contained>
+    <contained>
+        <!-- 48: Diagnóstico de muerte (ejemplo de sintaxis) -->
+        <Condition xmlns="http://hl7.org/fhir">
+            <id value="death-diagnosis"/>
+            <code>
+                <coding>
+                    <system value="http://hl7.org/fhir/sid/icd-10"/>
+                    <!-- 48.1: Código de la muerte -->
+                    <code value="I461"/>
+                    <!-- 48.2: Nombre del diagnóstico de la muerte -->
+                    <display value="MUERTE SUBITA CARDIACA"/>
+                </coding>
+            </code>
+            <subject>
+                <reference value="Patient/17b87319-eefc-4a61-ad9f-6dc6ec6be16e"/>
+            </subject>
+        </Condition>
+    </contained>
+    <contained>
+        <!-- Licencia por incapacidad -->
+        <ServiceRequest xmlns="http://hl7.org/fhir">
+            <id value="request-sick-leave"/>
+            <status value="active"/>
+            <intent value="order"/>
+            <code>
+                <coding>
+                    <system value="http://snomed.info/sct"/>
+                    <code value="224453000"/>
+                    <display value="solicita licencia por enfermedad"/>
+                </coding>
+            </code>
+            <!-- 51: Identificador para determinar el tipo de incapacidad temporal si la hubo. -->
+            <orderDetail>
+                <coding>
+                    <system value="http://fhir.minsalud.gov.co/terminologies-systems/tipo-incapacidad-temporal"/>
+                    <code value="1"/>
+                    <display value="Nueva"/>
+                </coding>
+            </orderDetail>
+            <subject>
+                <reference value="Patient/17b87319-eefc-4a61-ad9f-6dc6ec6be16e"/>
+            </subject>
+            <!-- 52: Días de incapacidad -->
+            <occurrenceTiming>
+                <repeat>
+                    <boundsDuration>
+                        <value value="3"/>
+                        <unit value="d"/>
+                    </boundsDuration>
+                </repeat>
+            </occurrenceTiming>
+        </ServiceRequest>
+    </contained>
+    <contained>
+        <!-- Licencia de maternidad -->
+        <ServiceRequest xmlns="http://hl7.org/fhir">
+            <id value="maternity-allowance"/>
+            <status value="active"/>
+            <intent value="order"/>
+            <code>
+                <coding>
+                    <system value="http://snomed.info/sct"/>
+                    <code value="161011008"/>
+                    <display value="licencia por maternidad"/>
+                </coding>
+            </code>
+            <subject>
+                <reference value="Patient/17b87319-eefc-4a61-ad9f-6dc6ec6be16e"/>
+            </subject>
+            <!-- 53: Días de licencia de maternidad -->
+            <occurrenceTiming>
+                <repeat>
+                    <boundsDuration>
+                        <value value="0"/>
+                        <unit value="d"/>
+                    </boundsDuration>
+                </repeat>
+            </occurrenceTiming>
+        </ServiceRequest>
+    </contained>
+    <contained>
+        <!-- 54: Antecedente de alergias -->
+        <AllergyIntolerance xmlns="http://hl7.org/fhir">
+            <id value="allergy-1"/>
+            <!-- 54.1: Código que identifica el tipo de alergia -->
+            <code>
+                <coding>
+                    <system value="http://fhir.minsalud.gov.co/terminologies-systems/tipo-alergia"/>
+                    <code value="5"/>
+                    <display value="Picadura de insectos"/>
+                </coding>
+            </code>
+            <patient>
+                <reference value="Patient/17b87319-eefc-4a61-ad9f-6dc6ec6be16e"/>
+            </patient>
+            <encounter>
+                <reference value="#encounter"/>
+            </encounter>
+            <!-- 54.2: Normbre del alérgeno -->
+            <reaction>
+                <substance>
+                    <text value="himenópteros"/>
+                </substance>
+                <manifestation/>
+            </reaction>
+        </AllergyIntolerance>
+    </contained>
+    <contained>
+        <!-- 55: Antecedente familiar -->
+        <FamilyMemberHistory xmlns="http://hl7.org/fhir">
+            <id value="family-history-1"/>
+            <status value="completed"/>
+            <patient>
+                <reference value="Patient/17b87319-eefc-4a61-ad9f-6dc6ec6be16e"/>
+            </patient>
+            <!-- 55.2: Parentesco -->
+            <relationship>
+                <coding>
+                    <system value="http://fhir.minsalud.gov.co/terminologies-systems/parentesco"/>
+                    <code value="4"/>
+                    <display value="Abuelos"/>
+                </coding>
+            </relationship>
+            <!-- 55.1 Condición de salud familiar -->
+            <condition>
+                <code>
+                    <coding>
+                        <system value="http://fhir.minsalud.gov.co/terminologies-systems/condicion-salud-familiar"/>
+                        <code value="1"/>
+                        <display value="Hipertensión arterial"/>
+                    </coding>
+                </code>
+            </condition>
+        </FamilyMemberHistory>
+    </contained>
+    <contained>
+        <!-- 56: Exposición a factores de riesgo ocupacionales -->
+        <Observation xmlns="http://hl7.org/fhir">
+            <id value="occupational-risk-1"/>
+            <status value="final"/>
+            <code>
+                <coding>
+                    <system value="http://snomed.info/sct"/>
+                    <code value="16090731000119102"/>
+                    <display value="exposición ocupacional a factor de riesgo"/>
+                </coding>
+            </code>
+            <!-- 56.1: Tipo de factor de riesgo -->
+            <valueCodeableConcept>
+                <coding>
+                    <system value="http://fhir.minsalud.gov.co/terminologies-systems/tipo-factor-riesgo"/>
+                    <code value="3"/>
+                    <display value="Ergonómicos"/>
+                </coding>
+            </valueCodeableConcept>
+            <!-- 56.2: Nombre del factor de riesgo -->
+            <note>
+                <text value="Silla de trabajo no ergonómica"/>
+            </note>
+        </Observation>
+    </contained>
+    <!-- HL7 FHIR: Estatus del recurso (preliminary | final | amended | entered-in-error), valor por defecto = "final" -->
+    <status value="final"/>
+    <!-- HL7 FHIR: Tipo de documento -->
+    <type>
+        <coding>
+            <system value="http://fhir.minsalud.gov.co/terminologies-systems/tipo-documento"/>
+            <code value="371531000"/>
+            <display value="Reporte de Encuentro de atención en salud"/>
+        </coding>
+    </type>
+    <!-- HL7 FHIR: Referencia a la información del recurso asociado al sujeto del encuentro (Paciente o usuario del sistema de salud) -->
+    <subject>
+        <reference value="Patient/17b87319-eefc-4a61-ad9f-6dc6ec6be16e"/>
+    </subject>
+    <encounter>
+        <reference value="#encounter"/>
+    </encounter>
+    <!-- HL7 FHIR: Fecha y hora de generación del documento -->
+    <date value="2019-11-01T11:15:03.000-05:00"/>
+    <!-- HL7 FHIR: Referencia a la información del(los) autor(es) del documento -->
+    <author>
+        <reference value="Practitioner/rethus-cc759836522H"/>
+    </author>
+    <!-- HL7 FHIR: Título del documento -->
+    <title value="REPORTE DE ENCUENTRO DE ATENCIÓN EN SALUD"/>
+    <!-- ***** Sección 1: VARIABLES DE IDENTIFICACIÓN DEL USUARIO ***** -->
+    <section>
+        <!-- HL7 FHIR: Título de la sección del documento -->
+        <title value="VARIABLES DE IDENTIFICACIÓN DEL USUARIO"/>
+        <!-- HL7 FHIR: Código de clasificación del tipo de sección -->
+        <code>
+            <coding>
+                <system value="http://fhir.minsalud.gov.co/terminologies-systems/codigo-secciones-documentos"/>
+                <code value="371531000-A"/>
+                <display value="Variables de identificación del usuario"/>
+            </coding>
+        </code>
+        <!-- HL7 FHIR: Segmento de texto narrativo de la sección -->
+        <text>
+            <status value="generated"/>
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                
+                <h3>VARIABLES DE IDENTIFICACIÓN DEL USUARIO</h3>
+                <table border="1">
+                    <tbody>
+                        <tr>
+                            <td><strong>País de nacionalidad:</strong></td>
+                            <td>Colombia</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Fecha de nacimiento:</strong></td>
+                            <td>1962/Ago/19</td>
+                        </tr>
+                        <tr>
+                            <td>Edad probable del usuario</td>
+                            <td>57 Años</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sexo:</strong></td>
+                            <td>Hombre</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Género:</strong></td>
+                            <td>Masculino</td>
+                        </tr>
+                        <tr>
+                            <th colspan="2">Ocupación del usuario en el momento de la atención</th>
+                        </tr>
+                        <tr>
+                            <th>Código</th>
+                            <th>Ocupación</th>
+                        </tr>
+                        <tr>
+                            <td>1210</td>
+                            <td>Directores generales y gerentes generales de empresa</td>
+                        </tr>
+                        <tr>
+                            <th colspan="2">Voluntad anticipada del usuario</th>
+                        </tr>
+                        <tr>
+                            <th>Tipo</th>
+                            <th>Fecha</th>
+                        </tr>
+                        <tr>
+                            <td>Donación</td>
+                            <td>2015/Mar/18</td>
+                        </tr>
+                        <tr>
+                            <th colspan="2">Categoría de discapacidad</th>
+                        </tr>
+                        <tr>
+                            <th>Código</th>
+                            <th>Categoría</th>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Discapacidad visual</td>
+                        </tr>
+                        <tr>
+                            <td><strong>País de residencia habitual:</strong></td>
+                            <td>Colombia</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Municipio de residencia habitual:</strong></td>
+                            <td>Bogotá D.C.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Etnia:</strong></td>
+                            <td>Ninguno de los anteriores</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Comunidad étnica:</strong></td>
+                            <td>Kokonuco</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Zona territorial donde reside el usuario:</strong></td>
+                            <td>Urbano</td>
+                        </tr>
+                        <tr>
+                            <th colspan="3">Entidad que responde por el plan de beneficios</th>
+                        </tr>
+                        <tr>
+                            <th>Código</th>
+                            <th>Entidad</th>
+                        </tr>
+                        <tr>
+                            <td>EPS1000</td>
+                            <td>SALUD PERMANENTE</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </text>
+        <!-- HL7 FHIR: Entrada de datos - Referencia al recurso de información del paciente -->
+        <entry>
+            <reference value="Patient/17b87319-eefc-4a61-ad9f-6dc6ec6be16e"/>
+        </entry>
+        <!-- HL7 FHIR: Entrada de datos - Referencia al contenido de edad probable del usuario -->
+        <entry>
+            <reference value="#apparent-age"/>
+        </entry>
+        <!-- HL7 FHIR: Entrada de datos - Referencia al contenido de ocupación del usuario en el momento de la atención -->
+        <entry>
+            <reference value="#ocupation-1"/>
+        </entry>
+        <!-- HL7 FHIR: Entrada de datos - Referencia al contenido de voluntad anticipada del usuario -->
+        <entry>
+            <reference value="#consent-1"/>
+        </entry>
+        <!-- HL7 FHIR: Entrada de datos - Referencia al contenido de categoría de discapacidad -->
+        <entry>
+            <reference value="#disability-1"/>
+        </entry>
+        <!-- HL7 FHIR: Entrada de datos - Referencia al contenido de entidad que responde por el plan de beneficios en salud con cargo a la UPC -->
+        <entry>
+            <reference value="Organization/codAdminSalud-EPS1000"/>
+        </entry>
+    </section>
+    <!-- ***** Sección 2: VARIABLES DE CONTACTO CON SERVICIOS DE SALUD ***** -->
+    <section>
+        <!-- HL7 FHIR: Título de la sección del documento -->
+        <title value="VARIABLES DE CONTACTO CON SERVICIOS DE SALUD"/>
+        <!-- HL7 FHIR: Código de clasificación del tipo de sección -->
+        <code>
+            <coding>
+                <system value="http://fhir.minsalud.gov.co/terminologies-systems/codigo-secciones-documentos"/>
+                <code value="371531000-B"/>
+                <display value="Variables de contacto con servicios de salud"/>
+            </coding>
+        </code>
+        <!-- HL7 FHIR: Segmento de texto narrativo de la sección -->
+        <text>
+            <status value="generated"/>
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                <h3>VARIABLES DE CONTACTO CON SERVICIOS DE SALUD</h3>
+                <table border="1">
+                    <tbody>
+                        <tr>
+                            <td><strong>Fecha y hora de ingreso del usuario al servicio de salud: </strong></td>
+                            <td>2019/Nov/01 10:45:00</td>
+                        </tr>
+                        <tr>
+                            <th colspan="2">Ámbito de atención en el que se realiza el procedimiento</th>
+                        </tr>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nombre</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Ambulatorio Intramural</td>
+                        </tr>
+                        <tr>
+                            <th colspan="2">Entorno donde se realiza la atención</th>
+                        </tr>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nombre</th>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Entorno Institucional</td>
+                        </tr>
+                        <tr>
+                            <th colspan="2">Vía de ingreso al servicio de salud</th>
+                        </tr>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nombre</th>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Directamente por el usuario a consulta externa</td>
+                        </tr>
+                        <tr>
+                            <th colspan="2">Causa que motiva la atencion</th>
+                        </tr>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nombre</th>
+                        </tr>
+                        <tr>
+                            <td>38</td>
+                            <td>Enfermedad general</td>
+                        </tr>
+                        <tr>
+                            <th colspan="2">Triage</th>
+                        </tr>
+                        <tr>
+                            <th>Fecha y hora del triage</th>
+                            <th>Clasificación del Triage</th>
+                        </tr>
+                        <tr>
+                            <td>2019/Nov/01 10:48:00</td>
+                            <td>Triage V</td>
+                        </tr>
+                        <tr>
+                            <th colspan="2">Diagnóstico principal de ingreso</th>
+                        </tr>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nombre</th>
+                        </tr>
+                        <tr>
+                            <td>R51</td>
+                            <td>CEFALEA</td>
+                        </tr>
+                        <tr>
+                            <th colspan="2">Tipo de diagnóstico principal de ingreso</th>
+                        </tr>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nombre</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Impresión diagnóstica</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </text>
+        <!-- HL7 FHIR: Entrada de datos - Referencia al contenido de encuentro de salud -->
+        <entry>
+            <reference value="#encounter"/>
+        </entry>
+        <!-- HL7 FHIR: Entrada de datos - Referencia al contenido de triage -->
+        <entry>
+            <reference value="#triage"/>
+        </entry>
+        <!-- HL7 FHIR: Entrada de datos - Referencia al contenido de diagnóstico principal de ingreso -->
+        <entry>
+            <reference value="#main-admission-diagnosis"/>
+        </entry>
+    </section>
+    <!-- ***** Sección 3: VARIABLES TECNOLOGÍAS EN SALUD ***** -->
+    <section>
+        <!-- HL7 FHIR: Título de la sección del documento -->
+        <title value="VARIABLES DE TECNOLOGÍAS EN SALUD"/>
+        <!-- HL7 FHIR: Código de clasificación del tipo de sección -->
+        <code>
+            <coding>
+                <system value="http://fhir.minsalud.gov.co/terminologies-systems/codigo-secciones-documentos"/>
+                <code value="371531000-C"/>
+                <display value="Variables de tecnologías en salud"/>
+            </coding>
+        </code>
+        <!-- HL7 FHIR: Segmento de texto narrativo de la sección -->
+        <text>
+            <status value="generated"/>
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                <h3>VARIABLES DE TECNOLOGÍAS EN SALUD</h3>
+                <table border="1">
+                    <tbody>
+                        <tr>
+                            <th colspan="2">Tipo de tecnología en salud e insumo</th>
+                        </tr>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nombre</th>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Medicamento con uso con registro sanitario</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Fecha de entrega o aplicación de la tecnología: </strong></td>
+                            <td>2019/Nov/01 11:12:00</td>
+                        </tr>
+                        <tr>
+                            <th colspan="2">Identificación de la Tecnología de salud entregada o aplicada</th>
+                        </tr>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nombre</th>
+                        </tr>
+                        <tr>
+                            <td>19908266.44</td>
+                            <td>ADVIL® TABLETAS RECUBIERTAS</td>
+                        </tr>
+                        <tr>
+                            <th colspan="2">Finalidad de la tecnología de salud</th>
+                        </tr>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nombre</th>
+                        </tr>
+                        <tr>
+                            <td>15</td>
+                            <td>Tratamiento</td>
+                        </tr>
+                        <tr>
+                            <th colspan="2">Descripción común del medicamento</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Forma farmacéutica: </strong></td>
+                            <td>Tableta</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Concentración: </strong></td>
+                            <td>200</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Unidad de medida de la tecnología en salud: </strong></td>
+                            <td>mg</td>
+                        </tr>
+                        <tr>
+                            <th colspan="2">Dosis de administración de la tecnología</th>
+                        </tr>
+                        <tr>
+                            <th>Valor</th>
+                            <th>Unidades</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Tableta</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Vía de administración: </strong></td>
+                            <td>Oral</td>
+                        </tr>
+                        <tr>
+                            <th colspan="2">Frecuencia de administración de la tecnología</th>
+                        </tr>
+                        <tr>
+                            <th>Valor</th>
+                            <th>Unidades</th>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>Horas</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Número de días de tratamiento: </strong></td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Número de unidades entregadas o aplicadas de la tecnología: </strong></td>
+                            <td>9</td>
+                        </tr>
+                        <tr>
+                            <th colspan="2">Identificación del talento humano en salud que realiza, entrega o aplica la tecnología de salud</th>
+                        </tr>
+                        <tr>
+                            <th>Tipo documento</th>
+                            <th>Número documento</th>
+                        </tr>
+                        <tr>
+                            <td>CC</td>
+                            <td>759836522H</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </text>
+        <!-- HL7 FHIR: Entrada de datos - Referencia al contenido de Medicamento o tecnología de salud entregada o aplicada -->
+        <entry>
+            <reference value="#medication-request-1"/>
+        </entry>
+        <!-- HL7 FHIR: Entrada de datos - Referencia al contenido del medicamento -->
+        <entry>
+            <reference value="#medication-1"/>
+        </entry>
+        <!-- HL7 FHIR: Entrada de datos - Referencia al recurso de información del talento humano en salud que realiza, entrega o aplica la tecnología de salud -->
+        <entry>
+            <reference value="Practitioner/rethus-cc759836522H"/>
+        </entry>
+    </section>
+    <!-- ***** Sección 4: VARIABLES DE RESULTADOS DE VALORACIÓN CLÍNICA Y DE LABORATORIO ***** -->
+    <section>
+        <!-- HL7 FHIR: Título de la sección del documento -->
+        <title value="VARIABLES DE RESULTADOS DE VALORACIÓN CLÍNICA Y DE LABORATORIO"/>
+        <!-- HL7 FHIR: Código de clasificación del tipo de sección -->
+        <code>
+            <coding>
+                <system value="http://fhir.minsalud.gov.co/terminologies-systems/codigo-secciones-documentos"/>
+                <code value="371531000-D"/>
+                <display value="Variables de resultados de valoración clínica y de laboratorio"/>
+            </coding>
+        </code>
+        <!-- HL7 FHIR: Segmento de texto narrativo de la sección -->
+        <text>
+            <status value="generated"/>
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                <h3>VARIABLES DE RESULTADOS DE VALORACIÓN CLÍNICA Y DE LABORATORIO</h3>
+                <table border="1">
+                    <tbody>
+                        <tr>
+                            <th colspan="2">Tipo de diagnóstico principal de egreso</th>
+                        </tr>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nombre</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Impresión diagnóstica</td>
+                        </tr>
+                        <tr>
+                            <th colspan="2">Diagnóstico principal de egreso</th>
+                        </tr>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nombre</th>
+                        </tr>
+                        <tr>
+                            <td>G442</td>
+                            <td>CEFALEA DEBIDA A TENSION</td>
+                        </tr>
+                        <tr>
+                            <th colspan="2">Diagnóstico relacionado No 1 de egreso</th>
+                        </tr>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nombre</th>
+                        </tr>
+                        <tr>
+                            <td>G440</td>
+                            <td>SINDROME DE CEFALEA EN RACIMOS</td>
+                        </tr>
+                        <tr>
+                            <th colspan="2">Diagnóstico relacionado No 2 de egreso</th>
+                        </tr>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nombre</th>
+                        </tr>
+                        <tr>
+                            <td>G448</td>
+                            <td>OTROS SINDROMES DE CEFALEA ESPECIFICADOS</td>
+                        </tr>
+                        <tr>
+                            <th colspan="2">Diagnóstico relacionado No 3 de egreso</th>
+                        </tr>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nombre</th>
+                        </tr>
+                        <tr>
+                            <td>Z566</td>
+                            <td>OTROS PROBLEMAS DE TENSION FISICA O MENTAL RELACIONADAS CON EL TRABAJO</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Fecha del resultado de la valoración clínica o del resultado de laboratorio: </strong></td>
+                            <td>2019/Nov/01 11:02:14</td>
+                        </tr>
+                        <tr>
+                            <th colspan="2">Instrumento de evaluación de valoración clínica o del resultado en salud</th>
+                        </tr>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nombre</th>
+                        </tr>
+                        <tr>
+                            <td>90.3.4.26</td>
+                            <td>HEMOGLOBINA GLICOSILADA AUTOMATIZADA</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Resultado observado en parámetro: </strong></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th colspan="2">Resultado observado en valor numérico</th>
+                        </tr>
+                        <tr>
+                            <th>Valor</th>
+                            <th>Unidades</th>
+                        </tr>
+                        <tr>
+                            <td>5.3</td>
+                            <td>%</td>
+                        </tr>
+                        <tr>
+                            <th colspan="2">Diagnóstico de la complicación</th>
+                        </tr>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nombre</th>
+                        </tr>
+                        <tr>
+                            <td>R457</td>
+                            <td>TENSION Y ESTADO DE CHOQUE EMOCIONAL, NO ESPECIFICADO</td>
+                        </tr>
+                        <tr>
+                            <th colspan="2">Condición del usuario a la salida</th>
+                        </tr>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nombre</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Paciente con destino a su domicilio</td>
+                        </tr>
+                        <tr>
+                            <th colspan="2">Diagnóstico de la muerte</th>
+                        </tr>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nombre</th>
+                        </tr>
+                        <tr>
+                            <td>I461</td>
+                            <td>MUERTE SUBITA CARDIACA</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Fecha y hora de la finalización de la atención: </strong></td>
+                            <td>2019/Nov/01 11:15:00</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Código del prestador de servicios de salud a donde se refiere: </strong></td>
+                            <td>1100199991</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tipo de incapacidad: </strong></td>
+                            <td>Nueva</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Días de incapacidad: </strong></td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Días de licencia de maternidad: </strong></td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <th colspan="2">Antecedente de alergias</th>
+                        </tr>
+                        <tr>
+                            <th>Tipo de alergia</th>
+                            <th>Alérgeno</th>
+                        </tr>
+                        <tr>
+                            <td>Picadura de insectos</td>
+                            <td>himenópteros</td>
+                        </tr>
+                        <tr>
+                            <th colspan="2">Antecedente familiar</th>
+                        </tr>
+                        <tr>
+                            <th>Condición de salud</th>
+                            <th>Parentesco</th>
+                        </tr>
+                        <tr>
+                            <td>Hipertensión arterial</td>
+                            <td>Abuelos</td>
+                        </tr>
+                        <tr>
+                            <th colspan="2">Exposición a factores de riesgo ocupacionales</th>
+                        </tr>
+                        <tr>
+                            <th>Tipo de factor de riesgo</th>
+                            <th>Nombre del factor de riesgo</th>
+                        </tr>
+                        <tr>
+                            <td>Ergonómicos</td>
+                            <td>Silla de trabajo no ergonómica</td>
+                        </tr>
+                        <tr>
+                            <th colspan="2">Identificación del talento humano en salud que realizó el egreso</th>
+                        </tr>
+                        <tr>
+                            <th>Tipo documento</th>
+                            <th>Número documento</th>
+                        </tr>
+                        <tr>
+                            <td>CC</td>
+                            <td>759836522H</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </text>
+        <!-- HL7 FHIR: Entrada de datos - Referencia al contenido del encuentro  -->
+        <entry>
+            <reference value="#encounter"/>
+        </entry>
+        <!-- HL7 FHIR: Entrada de datos - Referencia al contenido de diagnóstico principal de egreso -->
+        <entry>
+            <reference value="#main-discharge-diagnosis"/>
+        </entry>
+        <!-- HL7 FHIR: Entrada de datos - Referencia al contenido de diagnóstico relacionado No 1 de egreso -->
+        <entry>
+            <reference value="#related-discharge-diagnosis-1"/>
+        </entry>
+        <!-- HL7 FHIR: Entrada de datos - Referencia al contenido de diagnóstico relacionado No 2 de egreso -->
+        <entry>
+            <reference value="#related-discharge-diagnosis-2"/>
+        </entry>
+        <!-- HL7 FHIR: Entrada de datos - Referencia al contenido de diagnóstico relacionado No 3 de egreso -->
+        <entry>
+            <reference value="#related-discharge-diagnosis-3"/>
+        </entry>
+        <!-- HL7 FHIR: Entrada de datos - Referencia al contenido de valoración clínica o resultado de laboratorio -->
+        <entry>
+            <reference value="#obx-1"/>
+        </entry>
+        <!-- HL7 FHIR: Entrada de datos - Referencia al contenido de diagnóstico de la complicación -->
+        <entry>
+            <reference value="#complication-diagnosis-1"/>
+        </entry>
+        <!-- HL7 FHIR: Entrada de datos - Referencia al contenido de diagnóstico de muerte  -->
+        <entry>
+            <reference value="#death-diagnosis"/>
+        </entry>
+        <!-- HL7 FHIR: Entrada de datos - Referencia al contenido de licencia por incapacidad -->
+        <entry>
+            <reference value="#request-sick-leave"/>
+        </entry>
+        <!-- HL7 FHIR: Entrada de datos - Referencia al contenido de licencia de maternidad -->
+        <entry>
+            <reference value="#maternity-allowance"/>
+        </entry>
+        <!-- HL7 FHIR: Entrada de datos - Referencia al contenido de antecedente de alergias -->
+        <entry>
+            <reference value="#allergy-1"/>
+        </entry>
+        <!-- HL7 FHIR: Entrada de datos - Referencia al contenido de antecedente familiar -->
+        <entry>
+            <reference value="#family-history-1"/>
+        </entry>
+        <!-- HL7 FHIR: Entrada de datos - Referencia al contenido de exposición a factores de riesgo ocupacionales -->
+        <entry>
+            <reference value="#occupational-risk-1"/>
+        </entry>
+        <!-- HL7 FHIR: Entrada de datos - Referencia al recurso de información del talento humano en salud que realizó el egreso -->
+        <entry>
+            <reference value="Practitioner/rethus-cc759836522H"/>
+        </entry>
+    </section>
+</Composition>

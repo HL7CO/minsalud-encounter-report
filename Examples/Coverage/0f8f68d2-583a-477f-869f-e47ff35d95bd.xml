@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Datos de cobertura de seguridad social en salud -->
+<Coverage xmlns="http://hl7.org/fhir">
+    <id value="0f8f68d2-583a-477f-869f-e47ff35d95bd"/>
+    <text>
+        <status value="generated"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <h4>Cobertura de seguridad social en salud</h4>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th colspan="2">Registro de cobertura</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Afiliado: </strong></td>
+                        <td>Jorge Carlos Restrepo Rodríguez</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Identificación: </strong></td>
+                        <td>CC 1029384756K</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Entidad Administradora: </strong></td>
+                        <td>SALUD PERMANENTE</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Código Administradora: </strong></td>
+                        <td>EPS1000</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Número de póliza: </strong></td>
+                        <td>3948029384</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Estado: </strong></td>
+                        <td>Activo</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tipo: </strong></td>
+                        <td>POS</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Beneficiario: </strong></td>
+                        <td>Jorge Carlos Restrepo Rodríguez</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Periodo de cobertura: </strong></td>
+                        <td>De 2019/Ene/01 a 2019/Dic/31</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tipo de usuario: </strong></td>
+                        <td>Contibutivo</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </text>
+    <!-- Número de póliza -->
+    <identifier>
+        <value value="3948029384"/>
+    </identifier>
+    <status value="active"/>
+    <!-- Tipo de cobertura (POS, SOAT, ARL, Medicina Prepagada, etc) -->
+    <type>
+        <coding>
+            <system value="http://fhir.minsalud.gov.co/terminologies-systems/tipos-cobertura-salud"/>
+            <code value="POS"/>
+            <display value="Plan Obligatorio de Salud"/>
+        </coding>
+    </type>
+    <!-- Referencia al Afiliado -->
+    <subscriber>
+        <reference value="Patient/17b87319-eefc-4a61-ad9f-6dc6ec6be16e"/>
+    </subscriber>
+    <!-- Referencia al beneficiario -->
+    <beneficiary>
+        <reference value="Patient/17b87319-eefc-4a61-ad9f-6dc6ec6be16e"/>
+    </beneficiary>
+    <!-- Periodo de cobertura (fecha de inicio y finalización) -->
+    <period>
+        <start value="2019-01-01"/>
+        <end value="2019-12-31"/>
+    </period>
+    <!-- Referencia al pagodor o Administradora de Planes de Beneficios en Salud -->
+    <payor>
+        <reference value="Organization/codAminSalud-EPS1000"/>
+    </payor>
+    <!-- Tipo de usuario -->
+    <class>
+        <type>
+            <coding>
+                <system value="http://fhir.minsalud.gov.co/terminologies-systems/tipo-usuario"/>
+                <code value="1"/>
+                <display value="Contributivo"/>
+            </coding>
+        </type>
+        <value value="Contributivo"/>
+    </class>
+</Coverage>

@@ -1,0 +1,26 @@
+{
+    "resourceType": "ServiceRequest",
+    "id": "maternity-allowance",
+    "fhir_comments": [" Licencia de maternidad "],
+    "status": "active",
+    "intent": "order",
+    "code": {
+        "coding": [
+            {
+                "system": "http://snomed.info/sct",
+                "code": "161011008",
+                "display": "licencia por maternidad"
+            }
+        ]
+    },
+    "subject": {"reference": "Patient/17b87319-eefc-4a61-ad9f-6dc6ec6be16e"},
+    "occurrenceTiming": {
+        "fhir_comments": [" 53: Días de licencia de maternidad "],
+        "repeat": {
+            "boundsDuration": {
+                "value": 0,
+                "unit": "d"
+            }
+        }
+    }
+}
